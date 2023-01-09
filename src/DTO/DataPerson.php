@@ -17,7 +17,7 @@ class DataPerson
         public readonly string $cpf,
         public readonly string $email,
         public readonly string $celular,
-        public $profissao_id
+        public $profissao
     ){   
     }
 

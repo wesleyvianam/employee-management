@@ -16,7 +16,7 @@ class Person
     public readonly string $email;
     public readonly string $telefone;
     public readonly string $celular;
-    public $profissao_id;
+    public $profissao;
 
     public function __construct(
         string $nome,
@@ -26,7 +26,7 @@ class Person
         string $email,
         string $telefone,
         string $celular,
-        $profissao_id,
+        $profissao,
     ){   
     }
 

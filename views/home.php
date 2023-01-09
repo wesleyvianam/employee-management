@@ -37,7 +37,7 @@
                     <td><?= $pessoa->cpf; ?></td>
                     <td><?= $pessoa->email; ?></td>
                     <td><?= $pessoa->celular; ?></td>
-                    <td><?= $pessoa->profissao_id; ?></td>
+                    <td><?= $pessoa->profissao; ?></td>
                 </tr>
             <?php endforeach; ?>    
         </tbody>

@@ -15,9 +15,9 @@ class HelloController
 
     public function index() 
     {
-        $person = $this->personRepository->getAll();
-        // $conta = count($person);
-        require_once __DIR__ . '/../../views/home.php';
+        $person = $this->personRepository->getBySexAndAge();
         // print_r($person);
+        
+        require_once __DIR__ . '/../../views/home.php';
     }
 }

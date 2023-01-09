@@ -22,12 +22,30 @@ class PersonRepository
             )
             ->fetchAll(\PDO::FETCH_ASSOC);
         return array_map(
-            $this->hydrateVideo(...),
+            $this->hydratePerson(...),
             $pessoas
         );
     }
 
-    private function hydrateVideo(array $personData): DataPerson
+    public function getBySexAndAge() {
+        $pessoas = $this->pdo
+            ->query(
+                "SELECT 
+                    person.*,
+                    profission.nome as profissao
+                FROM pessoas as person, profissoes as profission 
+                WHERE person.profissao_id = profission.id
+                AND sexo = 'feminino' 
+                AND nascimento < '2001.01.01';"
+            )
+            ->fetchAll(\PDO::FETCH_ASSOC);
+        return array_map(
+            $this->hydratePerson(...),
+            $pessoas
+        );
+    }
+
+    private function hydratePerson(array $personData): DataPerson
     {
         $person = new DataPerson(
             $personData['id'],
@@ -37,7 +55,7 @@ class PersonRepository
             $personData['cpf'],
             $personData['email'],
             $personData['celular'],
-            $personData['profissao_id'],
+            $personData['profissao'],
         );
         
         return $person;
