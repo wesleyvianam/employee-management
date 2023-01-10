@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-use Dzenvolve\Test\Repository\PersonRepository;
+use Dzenvolve\Test\Controller\Pessoa\ListaMulheresController;
+use Dzenvolve\Test\Repository\Repository;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -13,29 +14,30 @@ $dbName = "dz_dev_test";
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connection successfully";
 } catch(PDOException $error) {
     echo "Connection failed: " . $error->getMessage();
 }
-$personReposotory = new PersonRepository($pdo);
+$repository = new Repository($pdo);
 
-use Dzenvolve\Test\Controller\HelloController;
-
-require_once __DIR__ . '/../src/Controller/helloController.php';
-
+require_once __DIR__ . '/../src/Controller/pessoa/ListaMulheresController.php';
+require_once __DIR__ . '/../src/Controller/pessoa/ListaPessoasController.php';
+require_once __DIR__ . '/../src/Controller/pessoa/ObterPessoaPorIdController.php';
+require_once __DIR__ . '/../src/Controller/Profissoes/ListaProfissoesController.php';
+require_once __DIR__ . '/../src/Controller/Controller.php';
 
 $routes = require_once __DIR__ . "/../config/route.php";
 $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
+
 $key = "$httpMethod|$pathInfo";
 if (array_key_exists($key, $routes)) {
     $controllerClass = $routes["$httpMethod|$pathInfo"];
-    $controller = new $controllerClass($personReposotory);
+    $controller = new $controllerClass($repository);
 } else {
-    echo "Nada acontece Feijoada";
+    echo "Algum erro ao tentar carregar";
 }
 
 /** @var Controller $controller */
-$controller->index();
+$controller->processaRequisicao();
 

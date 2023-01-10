@@ -8,36 +8,68 @@ use DateTime;
 
 class Person
 {
-    private int $id;
-    public readonly string $nome;
-    public $nascimento;
-    public readonly string $sexo;
-    public readonly string $cpf;
-    public readonly string $email;
-    public readonly string $telefone;
-    public readonly string $celular;
-    public $profissao;
-
     public function __construct(
-        string $nome,
-        $nascimento,
-        string $sexo,
-        string $cpf,
-        string $email,
-        string $telefone,
-        string $celular,
-        $profissao,
+        private int $id,
+        private string $nome,
+        private DateTime $nascimento,
+        private string $sexo,
+        private string $cpf,
+        private string $rg,
+        private string $email,
+        private string $telefone,
+        private string $celular,
+        private int $profissao_id,
     ){   
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function getNome(): string
     {
-        $this->id = $id;
+        return $this->nome;
     }
 
+    public function getNascimento(): DateTime
+    {
+        return $this->nascimento;
+    }
+
+    public function getSexo(): string
+    {
+        return $this->sexo;
+    }
+
+    public function getCpf(): string
+    {
+        return $this->cpf;
+    }
+
+    public function getRg(): string
+    {
+        return $this->rg;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function getTelefone(): string
+    {
+        return $this->telefone;
+    }
+
+    public function getCelular(): string
+    {
+        return $this->celular;
+    }
+
+    public function getProfissao(): int
+    {
+        return $this->profissao_id;
+    }
+    
 }
