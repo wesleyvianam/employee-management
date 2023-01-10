@@ -1,23 +1,21 @@
-<?php
+<?php 
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Pessoa;
+namespace Dzenvolve\Test\Controller\Profissoes;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
 
-class ListaPessoasController implements Controller
+class formCriarProfissaoController implements Controller
 {
-
     public function __construct(private Repository $repository)
     {
     }
 
     public function processaRequisicao()
     {
-        $pessoas = $this->repository->obterTodasPessoas();
 
-        require_once __DIR__ . '/../../../views/pessoa/index.php';
-    }  
+        require_once __DIR__ . "/../../../views/profissao/form.php";
+    }
 }

@@ -7,7 +7,7 @@
             Pessoas
         </h3>
         <div class="d-flex">
-            <a href="/cadastrar" class="btn btn-sm btn-header me-2">
+            <a href="/cadastrar-pessoa" class="btn btn-sm btn-header me-2">
                 <i class="bi bi-plus"></i>
                 Novo Cadastro
             </a>
@@ -79,15 +79,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/editar-pessoa?id=<?= $pessoa->id;?>">
                                         <i class="bi bi-pencil-square"></i>
                                         Editar
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/remover-pessoa?id=<?= $pessoa->id; ?>">
                                         <i class="bi bi-trash-fill"></i>
-                                        Remover
+                                        Deletar
                                     </a>
                                 </li>
                             </ul>

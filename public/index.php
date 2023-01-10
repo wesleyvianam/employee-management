@@ -22,6 +22,11 @@ $repository = new Repository($pdo);
 require_once __DIR__ . '/../src/Controller/pessoa/ListaMulheresController.php';
 require_once __DIR__ . '/../src/Controller/pessoa/ListaPessoasController.php';
 require_once __DIR__ . '/../src/Controller/pessoa/ObterPessoaPorIdController.php';
+require_once __DIR__ . '/../src/Controller/pessoa/CadastrarPessoaFormController.php';
+require_once __DIR__ . '/../src/Controller/pessoa/AtualizarPessoaFormController.php';
+require_once __DIR__ . '/../src/Controller/pessoa/AtualizaCadastroController.php';
+require_once __DIR__ . '/../src/Controller/pessoa/DeletaPessoaController.php';
+require_once __DIR__ . '/../src/Controller/pessoa/NovoCadastroController.php';
 require_once __DIR__ . '/../src/Controller/Profissoes/ListaProfissoesController.php';
 require_once __DIR__ . '/../src/Controller/Controller.php';
 
@@ -40,4 +45,3 @@ if (array_key_exists($key, $routes)) {
 
 /** @var Controller $controller */
 $controller->processaRequisicao();
-
