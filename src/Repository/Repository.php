@@ -6,8 +6,10 @@ namespace Dzenvolve\Test\Repository;
 
 use Dzenvolve\Test\DTO\DadosAtualizaPessoa;
 use Dzenvolve\Test\DTO\ListaDadosPessoa;
-use Dzenvolve\Test\DTO\ListaDadosProfissao;
+use Dzenvolve\Test\DTO\Profissao\DadosAtualizaProfissao;
+use Dzenvolve\Test\DTO\Profissao\ListaDadosProfissao;
 use Dzenvolve\Test\Entity\Pessoa;
+use Dzenvolve\Test\Entity\Profissao;
 use PDO;
 
 class Repository
@@ -26,7 +28,7 @@ class Repository
         return array_map($this->hidrataPessoa(...),$pessoas);
     }
 
-    public function ObterPorGeneroEIdade() {
+    public function obterPorGeneroEIdade() {
         $sql = "SELECT pessoas.*, profissoes.nome as profissao
             FROM pessoas, profissoes 
             WHERE pessoas.profissao_id = profissoes.id
@@ -37,7 +39,7 @@ class Repository
         return array_map($this->hidrataPessoa(...), $pessoas);
     }
 
-    public function ObterPessoaPorId(int $id)
+    public function obterPessoaPorId(int $id)
     {
         $sql = 'SELECT pessoas.*, profissoes.nome as profissao 
             FROM pessoas, profissoes 
@@ -100,11 +102,49 @@ class Repository
         return $declaracao->execute();
     }
 
-    public function ObterProfissoes()
+    public function obterProfissoes()
     {
         $sql = "SELECT * FROM profissoes";
         $profissoes = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
         return array_map($this->hidrataProfissao(...), $profissoes);
+    }
+
+    public function obterProfissaoPorId(int $id)
+    {
+        $sql = 'SELECT * FROM profissoes WHERE id = :id';
+        $declaracao = $this->pdo->prepare($sql);
+        $declaracao->bindValue(':id', $id, \PDO::PARAM_INT);
+        $declaracao->execute();
+
+        return $this->hidrataProfissao($declaracao->fetch(\PDO::FETCH_ASSOC));
+    }
+
+    public function cadastraProfissao(Profissao $profissao): bool
+    {
+        $sql = 'INSERT INTO profissoes (nome) VALUES (:nome);';
+        $declaracao = $this->pdo->prepare($sql);
+        $declaracao->bindValue(':nome', $profissao->nome);
+        
+        return $declaracao->execute();
+    }
+
+    public function atualizaProfissao(DadosAtualizaProfissao $profissao): bool
+    {
+        $sql = 'UPDATE profissoes SET nome = :nome WHERE id = :id';
+        $declaracao = $this->pdo->prepare($sql);
+        $declaracao->bindValue(':nome', $profissao->nome);
+        $declaracao->bindValue(':id', $profissao->id);
+        
+        return $declaracao->execute();
+    }
+
+    public function removeProfissao(int $id): bool
+    {
+        $sql = 'DELETE FROM profissoes WHERE id = :id';
+        $declaracao = $this->pdo->prepare($sql);
+        $declaracao->bindValue(':id', $id, PDO::PARAM_INT);
+
+        return $declaracao->execute();
     }
 
     private function hidrataPessoa(array $dadosPessoa): ListaDadosPessoa

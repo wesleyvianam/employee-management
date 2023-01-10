@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Profissoes;
+namespace Dzenvolve\Test\Controller\Profissao;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
@@ -14,7 +14,7 @@ class ListaProfissoesController implements Controller
     }
     public function processaRequisicao()
     {
-        $profissoes = $this->repository->ObterProfissoes();
-        require_once __DIR__ . '/../../../views/profissoes/index.php';
+        $profissoes = $this->repository->obterProfissoes();
+        require_once __DIR__ . '/../../../views/profissao/index.php';
     }
 }

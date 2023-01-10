@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Pessoa;
+namespace Dzenvolve\Test\Controller\Profissao;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
 
-class AtualizarPessoaFormController implements Controller
+class DeletaProfissaoController implements Controller
 {
     public function __construct(private Repository $repository)
     {
@@ -15,13 +15,16 @@ class AtualizarPessoaFormController implements Controller
 
     public function processaRequisicao()
     {
+        print_r($_GET);die;
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        if ($id === false || $id === null) {
+        if ($id === null || $id === false) {
             header('Location: /?sucesso=0');
             return;
         }
-        $pessoa = $this->repository->obterPessoaPorId($id);
-        $profissoes = $this->repository->obterProfissoes();
-        require_once __DIR__ . "/../../../views/pessoa/form.php";
+        
+        $successo = $this->repository->removeProfissao($id);
+        $successo === false 
+            ? header('Location: /?sucesso=0') 
+            : header('Location: /?sucesso=1');
     }
 }

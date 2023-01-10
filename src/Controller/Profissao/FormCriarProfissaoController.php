@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Profissoes;
+namespace Dzenvolve\Test\Controller\Profissao;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
 
-class formCriarProfissaoController implements Controller
+class FormCriarProfissaoController implements Controller
 {
     public function __construct(private Repository $repository)
     {

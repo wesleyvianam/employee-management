@@ -16,7 +16,7 @@ class ListaMulheresController implements Controller
 
     public function processaRequisicao()
     {
-        $pessoas = $this->repository->ObterPorGeneroEIdade();
+        $pessoas = $this->repository->obterPorGeneroEIdade();
 
         require_once __DIR__ . '/../../../views/pessoa/index.php';
     }

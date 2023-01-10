@@ -5,7 +5,7 @@
             <i class="bi bi-briefcase-fill"></i>
             Profissões
         </h2>
-        <a href="#" class="btn btn-header">
+        <a href="/cadastrar-profissao" class="btn btn-sm btn-header">
             <i class="bi bi-plus"></i>
             Nova Profissão
         </a>
@@ -27,26 +27,31 @@
                     </td>
                     <td>
                         <div class="dropdown">
-                            <button class="btn btn-header dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-sm btn-header dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Opções
                             </button>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/editar-profissao?id=<?= $profissao->id; ?>">
                                         <i class="bi bi-pencil-square"></i>
                                         Editar
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <button type="button" class="modal-dialog-centered dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="bi bi-trash-fill"></i>
                                         Remover
-                                    </a>
+                                    </button>
+                                    <!-- <a class="dropdown-item" href="/remover-profissao?id=<?= $profissao->id; ?>">
+                                        <i class="bi bi-trash-fill"></i>
+                                        Remover
+                                    </a> --> 
                                 </li>
                             </ul>
                         </div>
                     </td>
                 </tr>
+                <?php require_once __DIR__ . '/../components/modal.php' ?>
             <?php endforeach; ?>
         </tbody>
     </table>   

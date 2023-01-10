@@ -27,7 +27,12 @@ require_once __DIR__ . '/../src/Controller/pessoa/AtualizarPessoaFormController.
 require_once __DIR__ . '/../src/Controller/pessoa/AtualizaCadastroController.php';
 require_once __DIR__ . '/../src/Controller/pessoa/DeletaPessoaController.php';
 require_once __DIR__ . '/../src/Controller/pessoa/NovoCadastroController.php';
-require_once __DIR__ . '/../src/Controller/Profissoes/ListaProfissoesController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/ListaProfissoesController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/FormCriarProfissaoController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/NovaProfissaoController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/FormAtualizaProfissaoController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/AtualizaProfissaoController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/DeletaProfissaoController.php';
 require_once __DIR__ . '/../src/Controller/Controller.php';
 
 $routes = require_once __DIR__ . "/../config/route.php";

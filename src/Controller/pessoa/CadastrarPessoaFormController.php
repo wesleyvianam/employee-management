@@ -15,7 +15,7 @@ class CadastrarPessoaFormController implements Controller
 
     public function processaRequisicao()
     {
-        $profissoes = $this->repository->ObterProfissoes();
+        $profissoes = $this->repository->obterProfissoes();
         require_once __DIR__ . "/../../../views/pessoa/form.php";
     }
 }
