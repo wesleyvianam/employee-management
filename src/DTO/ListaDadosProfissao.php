@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Dzenvolve\Test\DTO;
 
-class DataProfission
+class ListaDadosProfissao
 {
     public function __construct(
         public readonly int $id,
-        public readonly string $nome
+        public readonly ?string $nome
     ) {
     } 
 }

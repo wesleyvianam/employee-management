@@ -1,0 +1,21 @@
+.bg-navbar {
+    background-color: #35557F;
+}
+
+.bg-header {
+    background-color: #00B6AD;
+    border-radius: .25rem .25rem 0 0;
+}
+
+.bg-feminino {
+    background-color: #dd9da8;
+}
+
+.bg-masculino{
+    background-color: #00b3ed;
+}
+
+.btn-header {
+    background-color: #35557F;
+    color: white;
+}
