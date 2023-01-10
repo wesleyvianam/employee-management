@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Profissao;
+namespace Dzenvolve\Test\Controller\Pessoa;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
 
-class FormCriarProfissaoController implements Controller
+class FormCadastraController implements Controller
 {
     public function __construct(private Repository $repository)
     {
@@ -15,7 +15,7 @@ class FormCriarProfissaoController implements Controller
 
     public function processaRequisicao()
     {
-
-        require_once __DIR__ . "/../../../views/profissao/form.php";
+        $profissoes = $this->repository->obterProfissoes();
+        require_once __DIR__ . "/../../../views/pessoa/form.php";
     }
 }

@@ -5,6 +5,10 @@
             <i class="bi bi-briefcase-fill"></i>
             Profissões
         </h2>
+        <form class="d-flex" role="search">
+            <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar profissão" aria-label="Search">
+            <button class="btn btn-sm btn-outline-primary" type="submit">Buscar</button>
+        </form>
         <a href="/cadastrar-profissao" class="btn btn-sm btn-header">
             <i class="bi bi-plus"></i>
             Nova Profissão
@@ -38,20 +42,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <button type="button" class="modal-dialog-centered dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <a class="dropdown-item" href="/remover-profissao?id=<?= $profissao->id; ?>">
                                         <i class="bi bi-trash-fill"></i>
                                         Remover
-                                    </button>
-                                    <!-- <a class="dropdown-item" href="/remover-profissao?id=<?= $profissao->id; ?>">
-                                        <i class="bi bi-trash-fill"></i>
-                                        Remover
-                                    </a> --> 
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </td>
                 </tr>
-                <?php require_once __DIR__ . '/../components/modal.php' ?>
             <?php endforeach; ?>
         </tbody>
     </table>   

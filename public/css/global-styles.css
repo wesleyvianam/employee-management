@@ -8,7 +8,7 @@
 }
 
 .bg-feminino {
-    background-color: #dd9da8;
+    background-color: #ff2165;
 }
 
 .bg-masculino{
@@ -18,6 +18,12 @@
 .btn-header {
     background-color: #35557F;
     color: white;
+}
+
+.btn-header:hover {
+    background-color: white ;
+    color: #35557F;
+    border: 1px solid;
 }
 
 .btn-cadastrar {

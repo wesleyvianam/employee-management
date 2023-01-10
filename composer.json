@@ -1,7 +1,13 @@
 {
+    "name": "dzenvolve/gestao-de-pessoas",
+    "description": "Projeto realizado em desafio tecnico PHP, Criado sistema para gestao de pessoas",
+    "type": "project",
     "autoload": {
         "psr-4": {
             "Dzenvolve\\Test\\": "src/"
         }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
     }
 }

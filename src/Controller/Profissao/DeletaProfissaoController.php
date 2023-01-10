@@ -15,7 +15,6 @@ class DeletaProfissaoController implements Controller
 
     public function processaRequisicao()
     {
-        print_r($_GET);die;
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         if ($id === null || $id === false) {
             header('Location: /?sucesso=0');

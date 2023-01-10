@@ -7,10 +7,13 @@ use Dzenvolve\Test\Repository\Repository;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$servername = "107.180.57.185";
-$username = "dz_dev";
-$password = "p?%3DY?#*LBW";
-$dbName = "dz_dev_test";
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->safeLoad();
+
+$servername = $_ENV['DB_SERVERNAME'];
+$username = $_ENV['DB_USERNAME'];
+$password = $_ENV['DB_PASSWORD'];
+$dbName = $_ENV['DATABASE_NAME'];
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -19,20 +22,23 @@ try {
 }
 $repository = new Repository($pdo);
 
-require_once __DIR__ . '/../src/Controller/pessoa/ListaMulheresController.php';
-require_once __DIR__ . '/../src/Controller/pessoa/ListaPessoasController.php';
-require_once __DIR__ . '/../src/Controller/pessoa/ObterPessoaPorIdController.php';
-require_once __DIR__ . '/../src/Controller/pessoa/CadastrarPessoaFormController.php';
-require_once __DIR__ . '/../src/Controller/pessoa/AtualizarPessoaFormController.php';
-require_once __DIR__ . '/../src/Controller/pessoa/AtualizaCadastroController.php';
-require_once __DIR__ . '/../src/Controller/pessoa/DeletaPessoaController.php';
-require_once __DIR__ . '/../src/Controller/pessoa/NovoCadastroController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/AtualizaCadastroController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/DeletaController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/FormAtualizaController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/FormCadastraController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/ListaMulheresController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/ListaPessoasController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/ObterPorIdController.php';
+require_once __DIR__ . '/../src/Controller/Pessoa/SalvaCadastroController.php';
+
+
 require_once __DIR__ . '/../src/Controller/Profissao/ListaProfissoesController.php';
-require_once __DIR__ . '/../src/Controller/Profissao/FormCriarProfissaoController.php';
-require_once __DIR__ . '/../src/Controller/Profissao/NovaProfissaoController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/FormCriaController.php';
+require_once __DIR__ . '/../src/Controller/Profissao/SalvaProfissaoController.php';
 require_once __DIR__ . '/../src/Controller/Profissao/FormAtualizaProfissaoController.php';
 require_once __DIR__ . '/../src/Controller/Profissao/AtualizaProfissaoController.php';
 require_once __DIR__ . '/../src/Controller/Profissao/DeletaProfissaoController.php';
+
 require_once __DIR__ . '/../src/Controller/Controller.php';
 
 $routes = require_once __DIR__ . "/../config/route.php";

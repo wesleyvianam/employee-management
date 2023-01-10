@@ -7,7 +7,7 @@ namespace Dzenvolve\Test\Controller\Pessoa;
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
 
-class AtualizarPessoaFormController implements Controller
+class FormAtualizaController implements Controller
 {
     public function __construct(private Repository $repository)
     {

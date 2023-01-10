@@ -9,7 +9,7 @@ use Dzenvolve\Test\Repository\Repository;
 use Dzenvolve\Test\Entity\Pessoa;
 use Exception;
 
-class NovoCadastroController implements Controller
+class SalvaCadastroController implements Controller
 {
     public function __construct(private Repository $repository)
     {

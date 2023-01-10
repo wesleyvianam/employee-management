@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Pessoa;
+namespace Dzenvolve\Test\Controller\Profissao;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\DTO\Profissao\DadosAtualizaProfissao;

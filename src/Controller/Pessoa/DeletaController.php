@@ -6,22 +6,22 @@ namespace Dzenvolve\Test\Controller\Pessoa;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
-use Dzenvolve\Test\Entity\Profissao;
 
-class NovaProfissaoController implements Controller
+class DeletaController implements Controller
 {
     public function __construct(private Repository $repository)
     {
-        
     }
+
     public function processaRequisicao()
     {
-        $nome = filter_input(INPUT_POST, 'nome');
-        if ($nome === false || $nome === null) {
-            header('Location: /?nome-error=0');
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        if ($id === null || $id === false) {
+            header('Location: /?sucesso=0');
             return;
         }
-        $successo = $this->repository->cadastraProfissao(new Profissao($nome));
+        
+        $successo = $this->repository->removePessoa($id);
         $successo === false 
             ? header('Location: /?sucesso=0') 
             : header('Location: /?sucesso=1');
