@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Dzenvolve\Test\Repository;
 
-use Dzenvolve\Test\DTO\DadosAtualizaPessoa;
-use Dzenvolve\Test\DTO\ListaDadosPessoa;
+use Dzenvolve\Test\DTO\Pessoa\DadosAtualizaPessoa;
+use Dzenvolve\Test\DTO\Pessoa\ListaDadosPessoa;
 use Dzenvolve\Test\DTO\Profissao\DadosAtualizaProfissao;
 use Dzenvolve\Test\DTO\Profissao\ListaDadosProfissao;
 use Dzenvolve\Test\Entity\Pessoa;

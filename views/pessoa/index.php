@@ -1,9 +1,8 @@
 <?php require_once __DIR__ . '/../components/baseInicio.php';?>
 
 <div class="shadow mb-3 bg-body rounded mt-4">
-    <a class="text-light text-decoration-none  bg-header py-2 px-4" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">            
-        <i class="bi bi-search"></i>
-        Filtrar
+    <a class="text-light text-decoration-none bg-header d-flex py-2 px-4 align-items-center" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">            
+        <i class="bi bi-search"></i>Filtrar
     </a>
     <form class="row col-md-12 p-3 collapse" id="collapseExample">
         <div class="col-md-4">

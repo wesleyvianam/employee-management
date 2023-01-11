@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Dzenvolve\Test\Controller\Pessoa;
 
 use Dzenvolve\Test\Controller\Controller;
-use Dzenvolve\Test\DTO\DadosAtualizaPessoa;
-use Dzenvolve\Test\DTO\ListaDadosPessoa;
+use Dzenvolve\Test\DTO\Pessoa\DadosAtualizaPessoa;
+use Dzenvolve\Test\DTO\Pessoa\ListaDadosPessoa;
 use Dzenvolve\Test\Repository\Repository;
 use Dzenvolve\Test\Entity\Pessoa;
 use Exception;
