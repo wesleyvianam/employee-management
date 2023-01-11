@@ -36,3 +36,9 @@
     background-color: #35557F;
     border: 1px solid;
 }
+
+.btn-paginator-atual {
+    background-color: white;
+    color: #35557F;
+    border: 1px solid #35557F;
+}

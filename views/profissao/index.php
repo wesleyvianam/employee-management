@@ -17,7 +17,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">NOME</th>
                 <th scope="col">AÇÕES</th>
             </tr>
@@ -25,7 +24,6 @@
         <tbody>
             <?php foreach ($profissoes as $key => $profissao): ?>
                 <tr>
-                    <th scope="row"><?= $key + 1; ?></th>
                     <td>
                         <?= $profissao->nome; ?>
                     </td>
@@ -54,6 +52,13 @@
             <?php endforeach; ?>
         </tbody>
     </table>   
+    <div class="d-flex justify-content-center align-items-center"> 
+        <?php foreach ($pagina->obterPaginas() as $page):?>  
+            <a href="?pagina=<?= $page['pagina'] . $gets  ?>">
+                <button type="button" class="btn btn-sm btn-<?= $page['atual'] == 1? 'paginator-atual' : 'paginator' ?> mx-1 mb-3"><?= $page['pagina'] ?></button>
+            </a>    
+        <?php endforeach ?> 
+    </div>
 </div>
 
 <?php require_once __DIR__ . '/../components/baseFim.php';?>

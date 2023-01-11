@@ -155,7 +155,7 @@
     <div class="d-flex justify-content-center align-items-center"> 
         <?php foreach ($pagina->obterPaginas() as $page):?>  
             <a href="?pagina=<?= $page['pagina'] . $gets  ?>">
-                <button type="button" class="btn btn-sm btn-paginator mx-1 mb-3"><?= $page['pagina'] ?></button>
+            <button type="button" class="btn btn-sm btn-<?= $page['atual'] == 1? 'paginator-atual' : 'paginator' ?> mx-1 mb-3"><?= $page['pagina'] ?></button>
             </a>    
         <?php endforeach ?> 
     </div>

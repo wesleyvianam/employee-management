@@ -114,9 +114,18 @@ class Repository
         return $declaracao->execute();
     }
 
-    public function obterProfissoes($where = null)
+    public function qtdProfissoes($where = null)
     {
-        $sql = "SELECT * FROM profissoes $where;";
+        $sql = "SELECT COUNT(*) FROM profissoes $where;";
+        $resultado = $this->pdo->prepare($sql);
+        
+        $resultado->execute(); 
+        return $resultado->fetchColumn();
+    }
+
+    public function obterProfissoes($where = null, $limit = null)
+    {
+        $sql = "SELECT * FROM profissoes $where $limit;";
         $profissoes = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
         return array_map($this->hidrataProfissao(...), $profissoes);
     }
