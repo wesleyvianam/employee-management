@@ -32,7 +32,6 @@ return [
     'GET|/remover-pessoa' => DeletaController::class,
     
     'GET|/profissoes' => ListaProfissoesController::class,
-    'POST|/profissoes' => ListaProfissoesController::class,
     'GET|/cadastrar-profissao' => FormCriaController::class,
     'POST|/cadastrar-profissao' => SalvaProfissaoController::class,
     'GET|/editar-profissao' => FormAtualizaProfissaoController::class,

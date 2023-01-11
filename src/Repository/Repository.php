@@ -18,12 +18,12 @@ class Repository
     {   
     }
 
-    public function obterTodasPessoas()
+    public function obterTodasPessoas($where = null)
     {
-        $sql = 'SELECT pessoas.*, profissoes.nome as profissao 
+        $sql = "SELECT pessoas.*, profissoes.nome as profissao 
             FROM pessoas, profissoes 
-            WHERE pessoas.profissao_id = profissoes.id;
-        ';
+            WHERE pessoas.profissao_id = profissoes.id $where;
+        ";
         $pessoas = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
         return array_map($this->hidrataPessoa(...),$pessoas);
     }
@@ -105,7 +105,6 @@ class Repository
     public function obterProfissoes($where = null)
     {
         $sql = "SELECT * FROM profissoes $where;";
-        // print_r($sql);die;
         $profissoes = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
         return array_map($this->hidrataProfissao(...), $profissoes);
     }

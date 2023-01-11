@@ -110,7 +110,7 @@
                 id="profissao_id" 
                 class="form-select form-select-sm" 
                 required>
-                <option value="<?= $pessoa != null ? "$pessoa->profissao->id" : ""; ?>">
+                <option value="<?= $pessoa != null ? "$pessoa->profissao" : ""; ?>">
                     <?= $pessoa != null ? "$pessoa->profissao" : "selecione";?>
                 </option>
                 <?php foreach ($profissoes as $profissao): ?>
