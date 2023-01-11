@@ -102,9 +102,10 @@ class Repository
         return $declaracao->execute();
     }
 
-    public function obterProfissoes()
+    public function obterProfissoes($where = null)
     {
-        $sql = "SELECT * FROM profissoes";
+        $sql = "SELECT * FROM profissoes $where;";
+        // print_r($sql);die;
         $profissoes = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
         return array_map($this->hidrataProfissao(...), $profissoes);
     }

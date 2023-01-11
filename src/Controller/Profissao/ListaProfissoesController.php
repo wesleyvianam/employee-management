@@ -14,7 +14,12 @@ class ListaProfissoesController implements Controller
     }
     public function processaRequisicao()
     {
-        $profissoes = $this->repository->obterProfissoes();
+        $nome = filter_input(INPUT_GET, 'nome');
+        if ($nome !== false || $nome !== null) {
+            $where = $nome ? "WHERE nome LIKE '%$nome%'": '';
+        }
+
+        $profissoes = $this->repository->obterProfissoes($where);
         require_once __DIR__ . '/../../../views/profissao/index.php';
     }
 }
