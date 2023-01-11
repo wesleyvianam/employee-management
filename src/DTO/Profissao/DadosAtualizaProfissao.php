@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\DTO\Profissao;
+namespace Dzenvolve\DTO\Profissao;
 
 class DadosAtualizaProfissao
 {

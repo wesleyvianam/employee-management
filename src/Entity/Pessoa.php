@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Entity;
+namespace Dzenvolve\Entity;
 
 class Pessoa
 {

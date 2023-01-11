@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9dfc2d41cb0c212f0b0f251d2d27a2c0
+class ComposerStaticInit69f9621253bfc314e7194af2c559efdc
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -29,7 +29,7 @@ class ComposerStaticInit9dfc2d41cb0c212f0b0f251d2d27a2c0
         ),
         'D' => 
         array (
-            'Dzenvolve\\Test\\' => 15,
+            'Dzenvolve\\' => 10,
             'Dotenv\\' => 7,
         ),
     );
@@ -55,7 +55,7 @@ class ComposerStaticInit9dfc2d41cb0c212f0b0f251d2d27a2c0
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
-        'Dzenvolve\\Test\\' => 
+        'Dzenvolve\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -77,9 +77,9 @@ class ComposerStaticInit9dfc2d41cb0c212f0b0f251d2d27a2c0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9dfc2d41cb0c212f0b0f251d2d27a2c0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9dfc2d41cb0c212f0b0f251d2d27a2c0::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit9dfc2d41cb0c212f0b0f251d2d27a2c0::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit69f9621253bfc314e7194af2c559efdc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit69f9621253bfc314e7194af2c559efdc::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit69f9621253bfc314e7194af2c559efdc::$classMap;
 
         }, null, ClassLoader::class);
     }

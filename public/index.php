@@ -2,8 +2,26 @@
 
 declare(strict_types=1);
 
-use Dzenvolve\Test\Controller\Pessoa\ListaMulheresController;
-use Dzenvolve\Test\Repository\Repository;
+use Dzenvolve\Service\Service;
+use Dzenvolve\Repository\Repository;
+use Dzenvolve\Controller\Controller;
+use Dzenvolve\Controller\Pessoa\{
+    ListaPessoasController,
+    ObterPorIdController,
+    FormCadastraController,
+    FormAtualizaController,
+    SalvaCadastroController,
+    AtualizaCadastroController,
+    DeletaController,
+};
+use Dzenvolve\Controller\Profissao\{
+    DeletaProfissaoController,
+    AtualizaProfissaoController,
+    FormAtualizaProfissaoController,
+    SalvaProfissaoController,
+    FormCriaController,
+    ListaProfissoesController,
+};
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -20,26 +38,9 @@ try {
 } catch(PDOException $error) {
     echo "Connection failed: " . $error->getMessage();
 }
+
 $repository = new Repository($pdo);
-
-require_once __DIR__ . '/../src/Controller/Pessoa/AtualizaCadastroController.php';
-require_once __DIR__ . '/../src/Controller/Pessoa/DeletaController.php';
-require_once __DIR__ . '/../src/Controller/Pessoa/FormAtualizaController.php';
-require_once __DIR__ . '/../src/Controller/Pessoa/FormCadastraController.php';
-require_once __DIR__ . '/../src/Controller/Pessoa/ListaMulheresController.php';
-require_once __DIR__ . '/../src/Controller/Pessoa/ListaPessoasController.php';
-require_once __DIR__ . '/../src/Controller/Pessoa/ObterPorIdController.php';
-require_once __DIR__ . '/../src/Controller/Pessoa/SalvaCadastroController.php';
-
-
-require_once __DIR__ . '/../src/Controller/Profissao/ListaProfissoesController.php';
-require_once __DIR__ . '/../src/Controller/Profissao/FormCriaController.php';
-require_once __DIR__ . '/../src/Controller/Profissao/SalvaProfissaoController.php';
-require_once __DIR__ . '/../src/Controller/Profissao/FormAtualizaProfissaoController.php';
-require_once __DIR__ . '/../src/Controller/Profissao/AtualizaProfissaoController.php';
-require_once __DIR__ . '/../src/Controller/Profissao/DeletaProfissaoController.php';
-
-require_once __DIR__ . '/../src/Controller/Controller.php';
+$service = new Service($repository);
 
 $routes = require_once __DIR__ . "/../config/route.php";
 $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
@@ -49,7 +50,7 @@ $httpMethod = $_SERVER['REQUEST_METHOD'];
 $key = "$httpMethod|$pathInfo";
 if (array_key_exists($key, $routes)) {
     $controllerClass = $routes["$httpMethod|$pathInfo"];
-    $controller = new $controllerClass($repository);
+    $controller = new $controllerClass($service);
 } else {
     echo "Algum erro ao tentar carregar";
 }

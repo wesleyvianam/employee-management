@@ -2,28 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Pessoa;
+namespace Dzenvolve\Controller\Pessoa;
 
-use Dzenvolve\Test\Controller\Controller;
-use Dzenvolve\Test\Repository\Repository;
+use Dzenvolve\Controller\Controller;
+use Dzenvolve\Repository\Repository;
+use Dzenvolve\Service\Service;
 
 class DeletaController implements Controller
 {
-    public function __construct(private Repository $repository)
-    {
+    public function __construct(private Service $service) 
+    {  
     }
 
     public function processaRequisicao()
     {
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        if ($id === null || $id === false) {
-            header('Location: /?sucesso=0');
-            return;
-        }
-        
-        $successo = $this->repository->removePessoa($id);
-        $successo === false 
-            ? header('Location: /?sucesso=0') 
-            : header('Location: /?sucesso=1');
+        $id = $this->service->validaDados(INPUT_GET, 'id');
+        return $this->service->removePessoa(intval($id));
     }
 }

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Dzenvolve\Test\Helper;
+namespace Dzenvolve\Helper;
 
 class Pagina
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller;
+namespace Dzenvolve\Controller;
 
 interface Controller 
 {

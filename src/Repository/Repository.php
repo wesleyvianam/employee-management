@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Repository;
+namespace Dzenvolve\Repository;
 
-use Dzenvolve\Test\DTO\Pessoa\DadosAtualizaPessoa;
-use Dzenvolve\Test\DTO\Pessoa\ListaDadosPessoa;
-use Dzenvolve\Test\DTO\Profissao\DadosAtualizaProfissao;
-use Dzenvolve\Test\DTO\Profissao\ListaDadosProfissao;
-use Dzenvolve\Test\Entity\Pessoa;
-use Dzenvolve\Test\Entity\Profissao;
+use Dzenvolve\DTO\Pessoa\DadosAtualizaPessoa;
+use Dzenvolve\DTO\Pessoa\ListaDadosPessoa;
+use Dzenvolve\DTO\Profissao\DadosAtualizaProfissao;
+use Dzenvolve\DTO\Profissao\ListaDadosProfissao;
+use Dzenvolve\Entity\Pessoa;
+use Dzenvolve\Entity\Profissao;
 use PDO;
 
 class Repository
@@ -123,7 +123,7 @@ class Repository
         return $resultado->fetchColumn();
     }
 
-    public function obterProfissoes($where = null, $limit = null)
+    public function obterProfissoes(string $where = "", string $limit = "")
     {
         $sql = "SELECT * FROM profissoes $where $limit;";
         $profissoes = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);

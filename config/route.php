@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
-use Dzenvolve\Test\Controller\Pessoa\{
-    ListaMulheresController,
+use Dzenvolve\Controller\Pessoa\{
     ListaPessoasController,
     ObterPorIdController,
     FormCadastraController,
@@ -12,7 +11,7 @@ use Dzenvolve\Test\Controller\Pessoa\{
     AtualizaCadastroController,
     DeletaController,
 };
-use Dzenvolve\Test\Controller\Profissao\{
+use Dzenvolve\Controller\Profissao\{
     DeletaProfissaoController,
     AtualizaProfissaoController,
     FormAtualizaProfissaoController,
@@ -22,8 +21,7 @@ use Dzenvolve\Test\Controller\Profissao\{
 };
 
 return [
-    'GET|/' => ListaMulheresController::class,
-    'GET|/pessoas' => ListaPessoasController::class,
+    'GET|/' => ListaPessoasController::class,
     'GET|/pessoa' => ObterPorIdController::class,
     'GET|/cadastrar-pessoa' => FormCadastraController::class,
     'POST|/cadastrar-pessoa' => SalvaCadastroController::class,

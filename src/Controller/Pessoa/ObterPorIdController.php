@@ -2,26 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Pessoa;
+namespace Dzenvolve\Controller\Pessoa;
 
-use Dzenvolve\Test\Controller\Controller;
-use Dzenvolve\Test\Repository\Repository;
+use Dzenvolve\Controller\Controller;
+use Dzenvolve\Service\Service;
 
 class ObterPorIdController implements Controller
 {
-    public function __construct(private Repository $repository)
-    {        
+    public function __construct(private Service $service) 
+    {  
     }
 
     public function processaRequisicao()
     {
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        if ($id === false || $id === null) {
-            header('Location: /?sucesso=0');
-            return;
-        }
-
-        $pessoa = $this->repository->obterPessoaPorId($id);
+        $id = $this->service->validaDados(INPUT_GET, 'id');
+        
+        $pessoa = $this->service->buscaPessoaPorId(intval($id));
         $dataNascimento = date('d/m/Y', intval($pessoa->nascimento));
 
         require_once __DIR__ . '/../../../views/pessoa/pessoa.php';

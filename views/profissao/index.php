@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($profissoes as $key => $profissao): ?>
+            <?php foreach ($profissoes as $profissao): ?>
                 <tr>
                     <td>
                         <?= $profissao->nome; ?>

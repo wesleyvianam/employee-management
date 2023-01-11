@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\Controller\Profissao;
+namespace Dzenvolve\Controller\Profissao;
 
-use Dzenvolve\Test\Controller\Controller;
-use Dzenvolve\Test\DTO\Profissao\DadosAtualizaProfissao;
-use Dzenvolve\Test\Repository\Repository;
-use Exception;
+use Dzenvolve\Controller\Controller;
+use Dzenvolve\DTO\Profissao\DadosAtualizaProfissao;
+use Dzenvolve\Service\Service;
 
 class AtualizaProfissaoController implements Controller
 {
-    public function __construct(private Repository $repository)
-    {    
+    public function __construct(private Service $service) 
+    {  
     }
 
     public function processaRequisicao()
@@ -29,9 +28,9 @@ class AtualizaProfissaoController implements Controller
             return;
         }
 
-        $successo = $this->repository->atualizaProfissao(new DadosAtualizaProfissao($id,$nome));
-        $successo === false
-            ? header('Location: /?sucesso=0')
-            : header('Location: /?sucesso=1');
+        // $successo = $this->repository->atualizaProfissao(new DadosAtualizaProfissao($id,$nome));
+        // $successo === false
+        //     ? header('Location: /?sucesso=0')
+        //     : header('Location: /?sucesso=1');
     }
 }

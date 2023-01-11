@@ -1,11 +1,10 @@
 <?php require_once __DIR__ . '/../components/baseInicio.php';?>
 
 <div class="shadow mb-5 bg-body rounded mt-4" >
-    <div class="bg-header py-2 px-4 d-flex justify-content-between align-items-center">
+    <div class="bg-header py-2 px-4">
         <h3 class="text-light">
             Novo Cadastro
         <h3>
-        <a href="/" class="btn btn-sm btn-danger">Cancelar</a>
     </div>
     <form class="p-3 row" method="post">
         <?php if ($pessoa != null): ?>
@@ -120,7 +119,8 @@
         </div>
 
         <div class="text-end mt-3">
-            <button type="submit" class="btn btn-sm btn-cadastrar"><?= $pessoa === false ? "Cadastrar" : "Atualizar" ?></button>
+            <a href="/?pagina=1" class="btn btn-sm btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-sm btn-cadastrar"><?= $pessoa ? "Atualizar" : "Cadastrar" ?></button>
         </div>
     </form> 
 </div>

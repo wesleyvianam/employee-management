@@ -2,11 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Test\DTO\Pessoa;
-
-use DateInterval;
-use DateTime;
-use DateTimeImmutable;
+namespace Dzenvolve\DTO\Pessoa;
 
 class ListaDadosPessoa
 {
