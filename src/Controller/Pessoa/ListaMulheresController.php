@@ -6,6 +6,7 @@ namespace Dzenvolve\Test\Controller\Pessoa;
 
 use Dzenvolve\Test\Controller\Controller;
 use Dzenvolve\Test\Repository\Repository;
+use Dzenvolve\Test\Helper\Pagina;
 
 class ListaMulheresController implements Controller
 {
@@ -45,11 +46,13 @@ class ListaMulheresController implements Controller
     
             $where = implode(" AND ", $condicao);
             $where = ' AND ' . $where;
-            // print_r($where);die;
         }
-        
-        $pessoas = $this->repository->obterTodasPessoas($where);
+        $pagina = new Pagina($this->repository->qtdPessoas($where), (int)$_GET['pagina'] ?? 1, 10);
+        $pessoas = $this->repository->obterTodasPessoas($where, $pagina->obterLimite());
         $profissoes = $this->repository->obterProfissoes();
+        unset($_GET['status']);
+        unset($_GET['pagina']);
+        $gets = http_build_query($_GET);
         require_once __DIR__ . '/../../../views/pessoa/index.php';
     }
 }

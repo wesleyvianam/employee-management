@@ -30,3 +30,9 @@
     background-color: #059790;
     color: white;
 }
+
+.btn-paginator {
+    color: white;
+    background-color: #35557F;
+    border: 1px solid;
+}

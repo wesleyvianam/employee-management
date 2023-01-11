@@ -1,5 +1,4 @@
 <?php require_once __DIR__ . '/../components/baseInicio.php';?>
-
 <div class="shadow mb-3 bg-body rounded mt-4">
     <a class="text-light text-decoration-none bg-header d-flex py-2 px-4 align-items-center" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">            
         <i class="bi bi-search"></i>Filtrar
@@ -152,7 +151,14 @@
                 </tr>
             <?php endforeach; ?>    
         </tbody>
-    </table>   
+    </table>
+    <div class="d-flex justify-content-center align-items-center"> 
+        <?php foreach ($pagina->obterPaginas() as $page):?>  
+            <a href="?pagina=<?= $page['pagina'] . $gets  ?>">
+                <button type="button" class="btn btn-sm btn-paginator mx-1 mb-3"><?= $page['pagina'] ?></button>
+            </a>    
+        <?php endforeach ?> 
+    </div>
 </div>
 
 <?php require_once __DIR__ . '/../components/baseFim.php';?>

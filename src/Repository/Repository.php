@@ -18,11 +18,23 @@ class Repository
     {   
     }
 
-    public function obterTodasPessoas($where = null)
+    public function qtdPessoas($where = null) 
+    {
+        $sql = "SELECT COUNT(*)
+            FROM pessoas, profissoes
+            WHERE pessoas.profissao_id = profissoes.id $where;
+        ";
+
+        $resultado = $this->pdo->prepare($sql);
+        $resultado->execute(); 
+        return $resultado->fetchColumn();
+    }
+
+    public function obterTodasPessoas($where = null, $limit = null)
     {
         $sql = "SELECT pessoas.*, profissoes.nome as profissao 
-            FROM pessoas, profissoes 
-            WHERE pessoas.profissao_id = profissoes.id $where;
+            FROM pessoas, profissoes
+            WHERE pessoas.profissao_id = profissoes.id $where $limit;
         ";
         $pessoas = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
         return array_map($this->hidrataPessoa(...),$pessoas);
