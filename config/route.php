@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Dzenvolve\Controller\Error404Controller;
+
 use Dzenvolve\Controller\Pessoa\{
     ListaPessoasController,
     ObterPorIdController,
