@@ -40,24 +40,13 @@ class Repository
         return array_map($this->hidrataPessoa(...),$pessoas);
     }
 
-    public function obterPorGeneroEIdade() {
-        $sql = "SELECT pessoas.*, profissoes.nome as profissao
-            FROM pessoas, profissoes 
-            WHERE pessoas.profissao_id = profissoes.id
-            AND sexo = 'feminino' 
-            AND nascimento < '2001.01.01'
-        ;";
-        $pessoas = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
-        return array_map($this->hidrataPessoa(...), $pessoas);
-    }
-
     public function obterPessoaPorId(int $id)
     {
-        $sql = 'SELECT pessoas.*, profissoes.nome as profissao 
+        $sql = 'SELECT pessoas.*, profissoes.id as profissoes_id, profissoes.nome as profissao
             FROM pessoas, profissoes 
             WHERE pessoas.id = :id;
-            WHERE pessoas.profissao_id = profissoes.id;
-        ';
+            AND pessoas.profissao_id = profissoes.id
+        ;';
         $declaracao = $this->pdo->prepare($sql);
         $declaracao->bindValue(':id', $id, \PDO::PARAM_INT);
         $declaracao->execute();
@@ -180,6 +169,7 @@ class Repository
             $dadosPessoa['email'],
             $dadosPessoa['celular'],
             $dadosPessoa['telefone'],
+            $dadosPessoa['profissao_id'],
             $dadosPessoa['profissao'],
         );
         

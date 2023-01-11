@@ -11,7 +11,8 @@
                 form-control-sm" 
                 required
                 autofocus
-                value="<?= $pessoa?->nome; ?>">
+                value="<?= $pessoa?->nome; ?>"
+                placeholder="nome da pessoa">
         </div>
         
         <div class="col-md-4">
@@ -22,7 +23,8 @@
                 class="form-control 
                 form-control-sm" 
                 required
-                value="<?= $pessoa?->email; ?>">
+                value="<?= $pessoa?->email; ?>"
+                placeholder="email@exemplo.com">
         </div>
 
         <div class="col-md-4">
@@ -61,7 +63,8 @@
                 class="form-control 
                 form-control-sm" 
                 required
-                value="<?= $pessoa?->cpf; ?>">
+                value="<?= $pessoa?->cpf; ?>"
+                placeholder="000.000.000-00">
         </div>
 
         <div class="col-md-4">
@@ -71,7 +74,8 @@
                 id="rg" 
                 class="form-control form-control-sm" 
                 required
-                value="<?= $pessoa?->rg; ?>">
+                value="<?= $pessoa?->rg; ?>"
+                placeholder="00.000.000-0">
         </div>
 
         <div class="col-md-4">
@@ -81,7 +85,8 @@
                 id="celular" 
                 class="form-control form-control-sm" 
                 required
-                value="<?= $pessoa?->celular; ?>">
+                value="<?= $pessoa?->celular; ?>"
+                placeholder="(00) 0 0000-0000">
         </div>
     
         <div class="col-md-4">
@@ -91,7 +96,8 @@
                 id="telefone" 
                 class="form-control form-control-sm" 
                 required
-                value="<?= $pessoa?->telefone; ?>">
+                value="<?= $pessoa?->telefone; ?>"
+                placeholder="(00) 0000-0000">
         </div>
 
         <div class="col-md-4">
@@ -101,8 +107,8 @@
                 id="profissao_id" 
                 class="form-select form-select-sm" 
                 required>
-                <option value="<?= $pessoa != null ? "$pessoa->profissao" : ""; ?>">
-                    <?= $pessoa != null ? "$pessoa->profissao" : "selecione";?>
+                <option value="<?= $pessoaProfissao ? "$pessoaProfissao->id" : ""; ?>">
+                    <?= $pessoa ? "$pessoaProfissao->nome" : "selecione";?>
                 </option>
                 <?php foreach ($profissoes as $profissao): ?>
                     <option value="<?= $profissao->id; ?>>"><?= $profissao->nome ?></option>

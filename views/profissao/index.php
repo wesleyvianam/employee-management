@@ -1,14 +1,13 @@
 <?php require_once __DIR__ . '/../components/baseInicio.php';?>
 <div class="shadow mb-5 bg-body rounded mt-4">
     <div class="bg-header d-flex justify-content-between py-2 px-4 align-items-center">
-        <h2 class="text-light">
+        <h5 class="text-light m-0">
             <i class="bi bi-briefcase-fill"></i>
             Profissões
-        </h2>
-        <form class="d-flex" role="search" method="get">
-            <input type="text" class="form-control form-control-sm me-2" name="nome" value="<?= $nome ?>" placeholder="Buscar profissão">
-            <button class="btn btn-sm btn-outline-primary" type="submit">Buscar</button>
-        </form>
+        </h5>
+        
+        <?php require_once __DIR__ . '/_filtro.php';?>
+
         <a href="/cadastrar-profissao" class="btn btn-sm btn-header">
             <i class="bi bi-plus"></i>
             Nova Profissão

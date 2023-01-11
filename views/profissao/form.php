@@ -1,32 +1,19 @@
 <?php require_once __DIR__ . '/../components/baseInicio.php';?>
 
 <div class="shadow mb-5 bg-body rounded mt-4" >
-    <div class="bg-header py-2 px-4">
-        <h3 class="text-light">
-            Nova Profissão
-        <h3>
+    <div class="bg-header p-2 px-4">
+        <h5 class="text-light m-0">
+            <?php if ($profissao): ?>
+                <i class="bi bi-pencil-square"></i>
+                Editar Profissão
+            <?php else: ?>
+                <i class="bi bi-briefcase-fill"></i>
+                Nova Profissão
+            <?php endif ?>
+        </h5>
     </div>
-    <form class="p-3 row" method="post">
-        <?php if ($profissao != null): ?>
-            <input type="hidden" name="id" value="<?= $profissao->id ?>" />
-        <?php endif; ?>
-        <div class="col-md-4">
-            <label for="nome" class="form-label">Nome:</label>
-            <input type="text" 
-                name="nome" 
-                id="nome" 
-                class="form-control 
-                form-control-sm" 
-                required
-                autofocus
-                value="<?= $profissao?->nome; ?>">
-        </div>
-        
-        <div class="text-end mt-3">
-            <a href="/profissoes?pagina=1" class="btn btn-sm btn-danger me-1">Cancelar</a>
-            <button type="submit" class="btn btn-sm btn-cadastrar"><?= $profissao == false ? "Cadastrar" : "Atualizar" ?></button>
-        </div>
-    </form> 
+
+    <?php require_once __DIR__ . '/_form.php';?>
 </div>
 
 <?php require_once __DIR__ . '/../components/baseFim.php';?>

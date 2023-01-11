@@ -16,10 +16,10 @@ class ObterPorIdController implements Controller
     public function processaRequisicao()
     {
         $id = $this->service->validaDados(INPUT_GET, 'id');
-        
-        $pessoa = $this->service->buscaPessoaPorId(intval($id));
-        $dataNascimento = date('d/m/Y', intval($pessoa->nascimento));
 
+        $pessoa = $this->service->buscaPessoaPorId(intval($id));
+        $profissao = $this->service->buscaProfissoesPorId($pessoa->profissao_id);
+        
         require_once __DIR__ . '/../../../views/pessoa/pessoa.php';
     }
 }
