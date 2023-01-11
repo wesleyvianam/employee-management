@@ -1,6 +1,9 @@
 <div class="shadow mb-3 bg-body rounded mt-4">
     <a class="text-light text-decoration-none bg-header d-flex py-2 px-4 align-items-center" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">            
-        <i class="bi bi-search"></i>Filtrar
+        <h5 class="m-0">
+            <i class="bi bi-search"></i>
+            Filtrar
+        </h5>
     </a>
     <form class="row col-md-12 p-3 collapse" id="collapseExample" method="get">
         <div class="col-md-4">

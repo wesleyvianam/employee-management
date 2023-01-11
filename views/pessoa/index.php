@@ -4,10 +4,10 @@
 
 <div class="shadow mb-5 bg-body rounded mt-4">
     <div class="bg-header d-flex justify-content-between py-2 px-4 align-items-center">
-        <h6 class="text-light">
+        <h5 class="text-light m-0">
             <i class="bi bi-person-fill"></i>
-            Pessoas
-        </h6>
+            Pessoas Cadastradas
+        </h5>
         <div class="d-flex">
             <a href="/cadastrar-pessoa" class="btn btn-sm btn-header">
                 <i class="bi bi-person-fill-add"></i>

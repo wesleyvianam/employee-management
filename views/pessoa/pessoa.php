@@ -2,9 +2,10 @@
 
 <div class="shadow mb-5 bg-body rounded mt-4">
     <div class="bg-header py-2 px-4">
-        <h3 class="text-light m-0">
+        <h5 class="text-light m-0">
+            <i class="bi bi-person-circle"></i>
             <?= $pessoa->nome ?>
-        </h3>
+        </h5>
     </div>
     <div class="row p-3">
         <div class="col-md-12 row">
