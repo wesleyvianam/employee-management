@@ -72,7 +72,7 @@
         </h6>
         <div class="d-flex">
             <a href="/cadastrar-pessoa" class="btn btn-sm btn-header">
-            <i class="bi bi-person-fill-add"></i>
+                <i class="bi bi-person-fill-add"></i>
                 Novo Cadastro
             </a>
         </div>

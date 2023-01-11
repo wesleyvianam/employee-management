@@ -38,18 +38,24 @@
 .btn-cadastrar {
     background-color: var(--verde-secundario);
     color: var(--branco);
+    border: 1px solid !important;
+}
+
+.btn-cadastrar:hover {
+    color: var(--verde-secundario);
+    background-color: var(--branco);
 }
 
 .btn-paginator {
     color: var(--branco);
     background-color: var(--azul-principal);
-    border: 1px solid;
+    border: 1px solid !important;
 }
 
 .btn-paginator-atual {
     background-color: var(--branco);
     color: var(--azul-principal);
-    border: 1px solid var(--azul-principal);
+    border: 1px solid  !important;
 }
 
 .page-not-found {

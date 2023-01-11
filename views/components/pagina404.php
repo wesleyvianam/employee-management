@@ -7,7 +7,7 @@
         <p class="lead">
             Sinto muito, não encontramos essa página.
         </p>
-        <a href="/" class="btn btn-primary">Página inicial</a>
+        <a href="/?pagina=1" class="btn btn-primary">Página inicial</a>
     </div>
 </div>
 

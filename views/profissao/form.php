@@ -23,7 +23,7 @@
         </div>
         
         <div class="text-end mt-3">
-            <a href="/" class="btn btn-sm btn-danger me-1">Cancelar</a>
+            <a href="/profissoes?pagina=1" class="btn btn-sm btn-danger me-1">Cancelar</a>
             <button type="submit" class="btn btn-sm btn-cadastrar"><?= $profissao == false ? "Cadastrar" : "Atualizar" ?></button>
         </div>
     </form> 

@@ -5,7 +5,7 @@
         <h3 class="text-light">
             <?= $pessoa->nome ?>
         </h3>
-        <a href="/" class="btn btn-sm btn-light border">
+        <a href="/?pagina=1" class="btn btn-sm btn-light border">
             <i class="bi bi-arrow-left-short"></i>
             Voltar
         </a>
