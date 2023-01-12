@@ -3,6 +3,7 @@
 ## Sobre o projeto:
 Back-end
 * PHP 8.1.2
+* Composer 2.4.4
 * vlucas/phpdotenv 5.5 - [Documentação](https://github.com/vlucas/phpdotenv)
 
 Front-end
