@@ -13,9 +13,26 @@ Front-end
 * Biblioteca de Icones Bootstrap Icons 1.10.3 - [Documentação](https://icons.getbootstrap.com/)
 
 ## Configuração do Projeto:
-Confirme se sua versão do PHP é pelo menos a 8.1, pois utilizei novos recursos do PHP, caso contrário pode dar algum erro.
+1 - Confirme se sua versão do PHP é pelo menos a 8.1, pois utilizei novos recursos do PHP, caso contrário pode dar algum erro.
 
+2 - Clone o projeto em sua maquina.
 
+3 - Rode o comando "composer install" para instalar a dependência "phpdotenv" e criar o arquivo "autoload".
+      
+      composer install
+
+4 - Configurando Banco de Dados: Criar arquivo ".env" na raiz do projeto e declarar as credenciais fornecidas do banco do teste técnico. exemplo:
+
+      DB_SERVERNAME="nome_do_servidor"
+      DB_USERNAME="username"
+      DB_PASSWORD="password"
+      DATABASE_NAME="nome_do_database"
+
+Eu deixei um arquivo ".env.exemplo" de exemplo. (configurar esse aquivo não substitui a criação do .env)
+      
+5 - Subir o servidor interno do PHP:
+
+      php -S localhost:8000 -t public
 
 ## Sobre o desenvolvimento:
 Criei esse wireframe como base para o front-end.
