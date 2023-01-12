@@ -1,11 +1,11 @@
 <div class="shadow mb-3 bg-body rounded mt-4">
-    <a class="text-light text-decoration-none bg-header d-flex py-2 px-4 align-items-center" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">            
+    <div class="text-light text-decoration-none bg-header d-flex py-2 px-4 align-items-center">            
         <h5 class="m-0">
             <i class="bi bi-search"></i>
             Filtrar
         </h5>
-    </a>
-    <form class="row col-md-12 p-3 collapse" id="collapseExample" method="get">
+    </div>
+    <form class="row p-4" method="get">
         <div class="col-md-4">
             <label class="form-label">Nome</label>
             <input type="text" 
@@ -21,7 +21,7 @@
                 <?= $sexo ? $sexo : "" ?>"><?= $sexo ? $sexo : "Todos" ?>
                 <?= $sexo 
                     ? "<option value='<?= $sexo ?>'>$sexo</option>
-                      <option value=''>Todos</option>"
+                        <option value=''>Todos</option>"
                     : '<option value="">Todos</option>'?>
                 <option value="Feminino">Feminino</option>
                 <option value="Masculino">Masculino</option>
@@ -57,8 +57,8 @@
         </div>
 
         <div class="text-end mt-3">
-            <a href="/?pagina=1" class="btn btn-sm btn-light border">Limpar</a>
-            <button type="submit" class="btn btn-sm btn-primary">
+            <a href="/?pagina=1" class="btn btn-sm btn-light border px-1">Limpar</a>
+            <button type="submit" class="btn btn-sm btn-header px-1">
                 <i class="bi bi-search"></i>    
                 Buscar
             </button>

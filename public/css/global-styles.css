@@ -1,5 +1,6 @@
 :root {
     --azul-principal: #35557F;
+    --azul-secundario: #0c294e;
     --verde-principal: #00B6AD;
     --verde-secundario: #059790;
     --branco: #FFFFFF;
@@ -31,9 +32,8 @@
 }
 
 .btn-header:hover {
-    background-color: var(--branco);
-    color: var(--azul-principal);
-    border: 1px solid;
+    background-color: var(--azul-secundario);
+    color: var(--branco);
 }
 
 .btn-cadastrar {
