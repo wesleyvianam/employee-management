@@ -30,14 +30,26 @@ Front-end
 
 Eu deixei um arquivo ".env.exemplo" de exemplo. (configurar esse aquivo não substitui a criação do .env)
       
-5 - Subir o servidor interno do PHP:
+5 - Subir o servidor web embutido do PHP:
 
       php -S localhost:8000 -t public
 
 ## Sobre o desenvolvimento:
-Criei esse wireframe como base para o front-end.
+Criei esse wireframe como base para desenvolver o front-end.
 * Front-end: [figma](https://www.figma.com/file/d9SsYte6gR4ouYbCnL1bNP/Untitled?node-id=0%3A1&t=MegYi36yTppSU5Ao-1)
 
-Utilizei a metodologia ágil kanban para maior controle e agilidade no desenvolvimento do projeto.
+Utilizei a metodologia ágil Kanban para maior controle e agilidade no desenvolvimento do projeto.
 * Kanban: [trello](https://trello.com/invite/b/XGuDb7pO/ATTI4964d167d6d65cca704131675794b7011EED81D6/technical-test-dzenvolve)
 
+## Recursos implementados
+* Listar dados
+* criar novo dado
+* Editar dados
+* Deletar dados
+* Multiplos filtros na página pessoas
+* Barra de busca na página de profissões
+* Paginacao nas páginas
+
+Design e Arquitetura de código
+* Utilizado padrão MVC
+* utilizado padrão de projeto DTO (Data transfer object)
