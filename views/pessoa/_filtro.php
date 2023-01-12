@@ -57,6 +57,7 @@
         </div>
 
         <div class="text-end mt-3">
+            <a href="/?pagina=1" class="btn btn-sm btn-light border">Limpar</a>
             <button type="submit" class="btn btn-sm btn-primary">
                 <i class="bi bi-search"></i>    
                 Buscar

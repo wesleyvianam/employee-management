@@ -29,7 +29,6 @@ class ListaPessoasController implements Controller
         $pagina = $resultado['pagina'];
         $profissoes = $this->service->buscaProfissoes();
         
-        unset($_GET['status']);
         unset($_GET['pagina']);
         $gets = http_build_query($_GET);
         

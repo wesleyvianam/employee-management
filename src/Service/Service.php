@@ -102,7 +102,7 @@ class Service
         $where = implode(" AND ", $condicao);
         $where = ' AND ' . $where;
 
-        $pagina = new Pagina($this->repository->qtdPessoas($where), (int)$_GET['pagina'] ?? 1, 8);
+        $pagina = new Pagina($this->repository->qtdPessoas($where), $_GET['pagina'] ? (int)$_GET['pagina'] : 1, 8);
         
         return [
             'dados' => $this->repository->obterTodasPessoas($where, $pagina->obterLimite()),

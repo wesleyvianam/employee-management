@@ -1,8 +1,8 @@
 <?php require_once __DIR__ . '/../components/baseInicio.php';?>
 
 <div class="shadow mb-5 bg-body rounded mt-4" >
-    <div class="bg-header p-2 px-4">
-        <h5 class="text-light m-0">
+    <div class="bg-header p-2 px-3">
+        <h5 class="text-light m-0 pe-1">
             <?php if ($profissao): ?>
                 <i class="bi bi-pencil-square"></i>
                 Editar Profissão

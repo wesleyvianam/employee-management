@@ -26,7 +26,7 @@ class SalvaCadastroController implements Controller
         $telefone = $this->service->validaDados(INPUT_POST, 'telefone');
         $profissao = $this->service->validaDados(INPUT_POST, 'profissao_id');
         $profissao_id = intval(str_replace("&gt;",'',$profissao));
-
+        
         return $this->service->salvaPessoa(
             $nome, 
             $email, 

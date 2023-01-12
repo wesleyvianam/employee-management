@@ -5,6 +5,7 @@
     --branco: #FFFFFF;
     --rosa-feminino: #ff2165;
     --azul-masculino: #00b3ed;
+    --cinza: #838080;
 }
 
 .bg-navbar {
@@ -16,12 +17,12 @@
     border-radius: .25rem .25rem 0 0;
 }
 
-.bg-feminino {
-    background-color: var(--rosa-feminino);
+.c-feminino {
+    color: var(--rosa-feminino);
 }
 
-.bg-masculino{
-    background-color: var(--azul-masculino);
+.c-masculino{
+    color: var(--azul-masculino);
 }
 
 .btn-header {
@@ -60,4 +61,14 @@
 
 .page-not-found {
     margin-top: 20vh;
+}
+
+.nao-informado {
+    color: var(--cinza);
+}
+
+@media (max-width: 768px) {
+    .buscador-profissao {
+        display: none;
+    }
 }

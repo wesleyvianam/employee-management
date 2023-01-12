@@ -21,7 +21,6 @@ class ListaProfissoesController implements Controller
         $profissoes = $resultado['dados'];
         $pagina = $resultado['pagina'];
 
-        unset($_GET['success']);
         unset($_GET['pagina']);
         $gets = http_build_query($_GET);
 

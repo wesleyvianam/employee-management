@@ -14,8 +14,8 @@ class ListaDadosPessoa
         public readonly ?string $cpf,
         public readonly ?string $rg,
         public readonly ?string $email,
-        public readonly ?string $telefone,
         public readonly ?string $celular,
+        public readonly ?string $telefone,
         public readonly ?int $profissao_id,
         public readonly ?string $profissao
     ){

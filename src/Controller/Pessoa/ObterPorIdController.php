@@ -19,7 +19,7 @@ class ObterPorIdController implements Controller
 
         $pessoa = $this->service->buscaPessoaPorId(intval($id));
         $profissao = $this->service->buscaProfissoesPorId($pessoa->profissao_id);
-        
+
         require_once __DIR__ . '/../../../views/pessoa/pessoa.php';
     }
 }

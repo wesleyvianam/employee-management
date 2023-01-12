@@ -16,7 +16,7 @@
         </div>
         
         <div class="col-md-4">
-            <label for="email" class="form-label">email:</label>
+            <label for="email" class="form-label">E-mail:</label>
             <input type="email" 
                 name="email" 
                 id="email" 
@@ -28,7 +28,7 @@
         </div>
 
         <div class="col-md-4">
-            <label for="nascimento" class="form-label">nascimento:</label>
+            <label for="nascimento" class="form-label">Nascimento:</label>
             <input type="date"
                 name="nascimento" 
                 id="nascimento" 
@@ -39,7 +39,7 @@
         </div>
 
         <div class="col-md-4">
-            <label for="sexo" class="form-label">sexo:</label>
+            <label for="sexo" class="form-label">Sexo:</label>
             <select type="select"
                 name="sexo" 
                 id="sexo" 
@@ -79,7 +79,7 @@
         </div>
 
         <div class="col-md-4">
-            <label for="celular" class="form-label">celular:</label>
+            <label for="celular" class="form-label">Celular:</label>
             <input type="text" 
                 name="celular" 
                 id="celular" 
@@ -90,7 +90,7 @@
         </div>
     
         <div class="col-md-4">
-            <label for="telefone" class="form-label">telefone:</label>
+            <label for="telefone" class="form-label">Telefone:</label>
             <input type="text" 
                 name="telefone" 
                 id="telefone" 
@@ -101,7 +101,7 @@
         </div>
 
         <div class="col-md-4">
-            <label for="profissao_id" class="form-label">profissão:</label>
+            <label for="profissao_id" class="form-label">Profissão:</label>
             <select type="select"
                 name="profissao_id" 
                 id="profissao_id" 

@@ -55,8 +55,10 @@ class Repository
 
     public function cadastraPessoa(Pessoa $pessoa): bool
     {
-        $sql = 'INSERT INTO pessoas (nome,email,nascimento,sexo,cpf,rg,telefone,celular,profissao_id)
-            VALUES (:nome, :email, :nascimento, :sexo, :cpf, :rg, :telefone, :celular, :profissao_id)';
+        $sql = 
+            'INSERT INTO pessoas (nome,email,nascimento,sexo,cpf,rg,celular,telefone,profissao_id)
+            VALUES (:nome,:email,:nascimento,:sexo,:cpf,:rg,:celular,:telefone,:profissao_id)'
+        ;
         $declaracao = $this->pdo->prepare($sql);
         $declaracao->bindValue(':nome', $pessoa->nome);
         $declaracao->bindValue(':email', $pessoa->email);
@@ -64,8 +66,8 @@ class Repository
         $declaracao->bindValue(':sexo', $pessoa->sexo);
         $declaracao->bindValue(':cpf', $pessoa->cpf);
         $declaracao->bindValue(':rg', $pessoa->rg);
-        $declaracao->bindValue(':telefone', $pessoa->telefone);
         $declaracao->bindValue(':celular', $pessoa->celular);
+        $declaracao->bindValue(':telefone', $pessoa->telefone);
         $declaracao->bindValue(':profissao_id', $pessoa->profissao_id);
         
         return $declaracao->execute();
