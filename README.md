@@ -49,6 +49,7 @@ Utilizei a metodologia ágil Kanban para maior controle e agilidade no desenvolv
 * Multiplos filtros na página pessoas
 * Barra de busca na página de profissões
 * Paginacao nas páginas
+* Responsividade Mobile (compatível com telas até 320px width)
 
 Design e Arquitetura de código
 * Utilizado padrão MVC

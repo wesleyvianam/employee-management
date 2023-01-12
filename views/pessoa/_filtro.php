@@ -57,8 +57,10 @@
         </div>
 
         <div class="text-end mt-3">
-            <a href="/?pagina=1" class="btn btn-sm btn-light border px-1">Limpar</a>
-            <button type="submit" class="btn btn-sm btn-header px-1">
+            <a href="/?pagina=1" class="btn btn-sm btn-light border px-2 me-1">
+                Limpar
+            </a>
+            <button type="submit" class="btn btn-sm btn-header px-2">
                 <i class="bi bi-search"></i>    
                 Buscar
             </button>
