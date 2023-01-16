@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dzenvolve\Service;
 
 use Dzenvolve\DTO\Pessoa\DadosAtualizaPessoa;
+use Dzenvolve\DTO\Profissao\DadosAtualizaProfissao;
 use Dzenvolve\Entity\Pessoa;
 use Dzenvolve\Entity\Profissao;
 use Dzenvolve\Helper\Pagina;
@@ -61,6 +62,23 @@ class Service
     public function buscaTodasProfissoes()
     {
         return $this->repository->obterProfissoes();
+    }
+
+    public function atualizaProfissao(int $id, string $nome) {
+        if ($id === false || $id === null) {
+            header('Location: /profissoes?id-error=0');
+            return;
+        }
+
+        if ($nome === false || $nome === null) {
+            header('Location: /profissoes?nome-error=0');
+            return;
+        }
+
+        $successo = $this->repository->atualizaProfissao(new DadosAtualizaProfissao($id,$nome));
+        return $successo === false
+           ? header('Location: /profissoes?sucesso=0')
+           : header('Location: /profissoes?sucesso=1');
     }
 
     public function removeProfissao(int $id)

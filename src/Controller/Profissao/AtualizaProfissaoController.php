@@ -16,21 +16,9 @@ class AtualizaProfissaoController implements Controller
 
     public function processaRequisicao()
     {
-        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-        if ($id === false || $id === null) {
-            header('Location: /?id-error=0');
-            return;
-        }
+        $id = $this->service->validaDados(INPUT_POST, 'id');
+        $nome = $this->service->validaDados(INPUT_POST, 'nome');
 
-        $nome = filter_input(INPUT_POST, 'nome');
-        if ($nome === false || $nome === null) {
-            header('Location: /?nome-error=0');
-            return;
-        }
-
-        // $successo = $this->repository->atualizaProfissao(new DadosAtualizaProfissao($id,$nome));
-        // $successo === false
-        //     ? header('Location: /?sucesso=0')
-        //     : header('Location: /?sucesso=1');
+        return $this->service->atualizaProfissao(intval($id), $nome);
     }
 }
