@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Controller\Pessoa;
+namespace RF\EmployeeManagement\Controller\Pessoa;
 
-use Dzenvolve\Controller\Controller;
-use Dzenvolve\Repository\Repository;
-use Dzenvolve\Service\Service;
+use RF\EmployeeManagement\Controller\Controller;
+use RF\EmployeeManagement\Repository\Repository;
+use RF\EmployeeManagement\Service\Service;
 
 class DeletaController implements Controller
 {

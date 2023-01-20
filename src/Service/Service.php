@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Service;
+namespace RF\EmployeeManagement\Service;
 
-use Dzenvolve\DTO\Pessoa\DadosAtualizaPessoa;
-use Dzenvolve\DTO\Profissao\DadosAtualizaProfissao;
-use Dzenvolve\Entity\Pessoa;
-use Dzenvolve\Entity\Profissao;
-use Dzenvolve\Helper\Pagina;
-use Dzenvolve\Repository\Repository;
+use RF\EmployeeManagement\DTO\Pessoa\DadosAtualizaPessoa;
+use RF\EmployeeManagement\DTO\Profissao\DadosAtualizaProfissao;
+use RF\EmployeeManagement\Entity\Pessoa;
+use RF\EmployeeManagement\Entity\Profissao;
+use RF\EmployeeManagement\Helper\Pagina;
+use RF\EmployeeManagement\Repository\Repository;
 
 class Service
 {

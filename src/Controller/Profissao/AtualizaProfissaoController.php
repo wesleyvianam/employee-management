@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Controller\Profissao;
+namespace RF\EmployeeManagement\Controller\Profissao;
 
-use Dzenvolve\Controller\Controller;
-use Dzenvolve\DTO\Profissao\DadosAtualizaProfissao;
-use Dzenvolve\Service\Service;
+use RF\EmployeeManagement\Controller\Controller;
+use RF\EmployeeManagement\DTO\Profissao\DadosAtualizaProfissao;
+use RF\EmployeeManagement\Service\Service;
 
 class AtualizaProfissaoController implements Controller
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Dzenvolve\Controller\Pessoa\{
+use RF\EmployeeManagement\Controller\Pessoa\{
     ListaPessoasController,
     ObterPorIdController,
     FormCadastraController,
@@ -11,7 +11,7 @@ use Dzenvolve\Controller\Pessoa\{
     AtualizaCadastroController,
     DeletaController,
 };
-use Dzenvolve\Controller\Profissao\{
+use RF\EmployeeManagement\Controller\Profissao\{
     DeletaProfissaoController,
     AtualizaProfissaoController,
     FormAtualizaProfissaoController,
@@ -19,6 +19,8 @@ use Dzenvolve\Controller\Profissao\{
     FormCriaController,
     ListaProfissoesController,
 };
+
+use RF\EmployeeManagement\Controller\User\FormLoginController;
 
 return [
     'GET|/' => ListaPessoasController::class,
@@ -35,4 +37,6 @@ return [
     'GET|/editar-profissao' => FormAtualizaProfissaoController::class,
     'POST|/editar-profissao' => AtualizaProfissaoController::class,
     'GET|/remover-profissao' => DeletaProfissaoController::class,
+
+    'GET|/login' => FormLoginController::class,
 ];

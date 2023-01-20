@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Controller;
+namespace RF\EmployeeManagement\Controller;
 
 class Error404Controller implements Controller
 {

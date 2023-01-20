@@ -2,27 +2,28 @@
 
 declare(strict_types=1);
 
-use Dzenvolve\Service\Service;
-use Dzenvolve\Repository\Repository;
-use Dzenvolve\Controller\Controller;
-use Dzenvolve\Controller\Error404Controller;
-use Dzenvolve\Controller\Pessoa\{
-    ListaPessoasController,
-    ObterPorIdController,
-    FormCadastraController,
-    FormAtualizaController,
-    SalvaCadastroController,
-    AtualizaCadastroController,
-    DeletaController,
-};
-use Dzenvolve\Controller\Profissao\{
-    DeletaProfissaoController,
-    AtualizaProfissaoController,
-    FormAtualizaProfissaoController,
-    SalvaProfissaoController,
-    FormCriaController,
-    ListaProfissoesController,
-};
+use RF\EmployeeManagement\Service\Service;
+use RF\EmployeeManagement\Repository\Repository;
+use RF\EmployeeManagement\Controller\Controller;
+use RF\EmployeeManagement\Controller\Error404Controller;
+
+// use Dzenvolve\Controller\Pessoa\{
+//     ListaPessoasController,
+//     ObterPorIdController,
+//     FormCadastraController,
+//     FormAtualizaController,
+//     SalvaCadastroController,
+//     AtualizaCadastroController,
+//     DeletaController,
+// };
+// use Dzenvolve\Controller\Profissao\{
+//     DeletaProfissaoController,
+//     AtualizaProfissaoController,
+//     FormAtualizaProfissaoController,
+//     SalvaProfissaoController,
+//     FormCriaController,
+//     ListaProfissoesController,
+// };
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/Controller/Erro404Controller.php';

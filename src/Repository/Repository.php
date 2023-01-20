@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Repository;
+namespace RF\EmployeeManagement\Repository;
 
-use Dzenvolve\DTO\Pessoa\DadosAtualizaPessoa;
-use Dzenvolve\DTO\Pessoa\ListaDadosPessoa;
-use Dzenvolve\DTO\Profissao\DadosAtualizaProfissao;
-use Dzenvolve\DTO\Profissao\ListaDadosProfissao;
-use Dzenvolve\Entity\Pessoa;
-use Dzenvolve\Entity\Profissao;
+use RF\EmployeeManagement\DTO\Pessoa\DadosAtualizaPessoa;
+use RF\EmployeeManagement\DTO\Pessoa\ListaDadosPessoa;
+use RF\EmployeeManagement\DTO\Profissao\DadosAtualizaProfissao;
+use RF\EmployeeManagement\DTO\Profissao\ListaDadosProfissao;
+use RF\EmployeeManagement\Entity\Pessoa;
+use RF\EmployeeManagement\Entity\Profissao;
 use PDO;
 
 class Repository

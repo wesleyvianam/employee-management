@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Entity;
+namespace RF\EmployeeManagement\Entity;
 
 class Pessoa
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Dzenvolve\Controller\Pessoa;
+namespace RF\EmployeeManagement\Controller\Pessoa;
 
-use Dzenvolve\Controller\Controller;
-use Dzenvolve\Service\Service;
+use RF\EmployeeManagement\Controller\Controller;
+use RF\EmployeeManagement\Service\Service;
 
 class ObterPorIdController implements Controller
 {

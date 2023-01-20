@@ -1,4 +1,4 @@
-# RF - Gestão de funcionários
+# RF - Employee Management
 
 ## Sobre o projeto:
 Back-end

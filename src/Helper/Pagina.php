@@ -1,6 +1,6 @@
 <?php 
 
-namespace Dzenvolve\Helper;
+namespace RF\EmployeeManagement\Helper;
 
 class Pagina
 {
