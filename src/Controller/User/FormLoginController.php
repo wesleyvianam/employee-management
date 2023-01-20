@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace RF\EmployeeManagement\Controller\User;
 
-use RF\EmployeeManagement\Controller\Controller;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
-class FormLoginController implements Controller
+class FormLoginController implements RequestHandlerInterface
 {
-    public function processaRequisicao()
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        echo "Ola mundo!";
+        return new Response(200, body: "Ola mundo!");
     }
 }
