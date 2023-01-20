@@ -1,4 +1,4 @@
-# Dzenvolve - Gestão de pessoas
+# RF - Gestão de funcionários
 
 ## Sobre o projeto:
 Back-end
