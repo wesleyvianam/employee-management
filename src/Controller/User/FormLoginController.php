@@ -8,11 +8,16 @@ use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use RF\EmployeeManagement\Helper\TemplateTwigTrait;
 
 class FormLoginController implements RequestHandlerInterface
 {
+    use TemplateTwigTrait;
+
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        return new Response(200, body: "Ola mundo!");
+        $phrase = "Olá mundo, aqui é o login";
+        
+        return new Response(200, body: $this->render('user.html.twig', ['phrase' => $phrase]) );
     }
 }
