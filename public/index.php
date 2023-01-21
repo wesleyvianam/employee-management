@@ -2,31 +2,13 @@
 
 declare(strict_types=1);
 
-use RF\EmployeeManagement\Service\Service;
-use RF\EmployeeManagement\Repository\Repository;
-use RF\EmployeeManagement\Controller\Controller;
 use RF\EmployeeManagement\Controller\Error404Controller;
-
-// use Dzenvolve\Controller\Pessoa\{
-//     ListaPessoasController,
-//     ObterPorIdController,
-//     FormCadastraController,
-//     FormAtualizaController,
-//     SalvaCadastroController,
-//     AtualizaCadastroController,
-//     DeletaController,
-// };
-// use Dzenvolve\Controller\Profissao\{
-//     DeletaProfissaoController,
-//     AtualizaProfissaoController,
-//     FormAtualizaProfissaoController,
-//     SalvaProfissaoController,
-//     FormCriaController,
-//     ListaProfissoesController,
-// };
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/Controller/Erro404Controller.php';
+
+session_start();
+session_regenerate_id();
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
@@ -38,6 +20,12 @@ $routes = require_once __DIR__ . "/../config/route.php";
 $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
+// Virify if is logado
+$isLoginRoute = $pathInfo === '/login';
+if (!array_key_exists('logado', $_SESSION) && !$isLoginRoute) {
+    header('Location: /login');
+    return;
+}
 
 $key = "$httpMethod|$pathInfo";
 if (array_key_exists($key, $routes)) {
