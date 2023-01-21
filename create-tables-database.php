@@ -19,4 +19,16 @@ $createTableUser =
         password VARCHAR(256) NOT NULL
     );';
 
-$pdo->exec('write slq or variable with sql');
+$createUserAdmin = 'INSERT INTO users (name, email, roles, password) VALUES (?,?,?,?)';
+
+// CRIAR USUÀRIO ADMIN
+$hash_password = password_hash('rf@123', PASSWORD_ARGON2ID);
+$roles = json_encode(['ROLE_ADMIN']);
+
+$statement = $pdo->prepare($createUserAdmin);
+$statement->bindValue(1, "admin");
+$statement->bindValue(2, "admin@rfemployeemanager.com");
+$statement->bindValue(3, $roles);
+$statement->bindValue(4, $hash_password);
+$statement->execute();
+
