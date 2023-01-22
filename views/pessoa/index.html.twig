@@ -1,6 +1,10 @@
-<?php require_once __DIR__ . '/../components/baseInicio.php';?>
+{% extends "layoutBase.html.twig" %}
 
-<?php require_once __DIR__ . '/_filtro.php';?>
+{% block title %}Home - employee{% endblock %}
+
+{% block body %}
+
+{% include "pessoa/_filtro.html.twig" %}
 
 <div class="shadow mb-5 bg-body rounded mt-4">
     <div class="bg-header d-flex justify-content-between py-2 px-3 align-items-center">
@@ -15,7 +19,7 @@
             </a>
         </div>
     </div>
-    <?php if (count($pessoas) > 0): ?>
+    {# <?php if (count($pessoas) > 0): ?> #}
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -28,62 +32,44 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($pessoas as $key => $pessoa): ?>
+                    {# {% for pessoa in pessoas %} #}
                         <tr>
                             <td>
-                                <?= $pessoa->nome
-                                    ? $pessoa->nome
-                                    : '<span class="nao-informado">Não informado</span>' 
-                                ?>
+                                {# {% pessoa.nome ? pessoa.nome : "<span class='nao-informado'>Não informado</span>" %} #}
                                 <br />
                                 <small>
                                     <strong>Sexo:</strong> 
                                     <span>
-                                        <?= $pessoa->sexo == 'Feminino' 
+                                        {# <?= $pessoa->sexo == 'Feminino' 
                                             ? '<i class="bi bi-gender-female c-feminino"></i>' 
                                             : '<i class="bi bi-gender-male c-masculino"></i>' 
-                                        ?>
-                                        <?= $pessoa->sexo; ?>
+                                        ?> #}
+                                        {# {% pessoa.sexo ? pessoa.sexo : "<span class='nao-informado'>Não informado</span>" %} #}
                                     </span>
                                 </small>
                             </td>
                             <td>
                                 <small>
                                     <strong>Nascimento:</strong> 
-                                    <?= $pessoa->nascimento
-                                        ? $pessoa->nascimento
-                                        : '<span class="nao-informado">Não informado</span>' 
-                                    ?>
+                                    {# {% pessoa.nascimento ? pessoa.nascimento : "<span class='nao-informado'>Não informado</span>" %} #}
                                 </small> <br />
                                 <small>
                                     <strong>CPF:</strong> 
-                                    <?= $pessoa->cpf
-                                        ? $pessoa->cpf
-                                        : '<span class="nao-informado">Não informado</span>' 
-                                    ?>
+                                    {# {% pessoa.cpf ? pessoa.cpf : "<span class='nao-informado'>Não informado</span>" %} #}
                                 </small>
                             </td>
                             <td>
                                 <small>
                                     <strong>E-mail:</strong> 
-                                    <?= $pessoa->email
-                                        ? $pessoa->email
-                                        : '<span class="nao-informado">Não informado</span>' 
-                                    ?>
+                                    {# {% pessoa.cpf ? pessoa.cpf : "<span class='nao-informado'>Não informado</span>" %} #}
                                 </small> <br />
                                 <small>
                                     <strong>Celular:</strong> 
-                                    <?= $pessoa->celular
-                                        ? $pessoa->celular
-                                        : '<span class="nao-informado">Não informado</span>' 
-                                    ?>
+                                    {# {% pessoa.cpf ? pessoa.cpf : "<span class='nao-informado'>Não informado</span>" %} #}
                                 </small>
                             </td>
                             <td>
-                                <?= $pessoa->profissao
-                                    ? $pessoa->profissao
-                                    : '<span class="nao-informado">Não informado</span>' 
-                                ?>
+                                {# {% pessoa.cpf ? pessoa.cpf : "<span class='nao-informado'>Não informado</span>" %} #}
                             </td>
                             <td>
                                 <div class="dropdown">
@@ -113,23 +99,23 @@
                                 </div>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                    {# {% endfor %} #}
                 </tbody>
             </table>    
         </div>
-    <?php else: ?>
+    {# <?php else: ?>
         <p class="nao-informado m-0 p-3">
             Nenhum cadastro para mostrar.
         </p>
-    <?php endif ?>
+    <?php endif ?> #}
 
-    <div class="d-flex justify-content-center align-items-center"> 
+    {# <div class="d-flex justify-content-center align-items-center"> 
         <?php foreach ($pagina->obterPaginas() as $page):?>
             <a href="?pagina=<?= $page['pagina'] . "&" . $gets  ?>">
                 <button type="button" class="btn btn-sm btn-<?= $page['atual'] == 1? 'paginator-atual' : 'paginator' ?> mx-1 mb-3"><?= $page['pagina'] ?></button>
             </a>    
         <?php endforeach ?> 
-    </div>
+    </div> #}
 </div>
 
-<?php require_once __DIR__ . '/../components/baseFim.php';?>
+{% endblock %}

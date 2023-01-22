@@ -28,10 +28,6 @@ class LoginController implements RequestHandlerInterface
         $statement->bindValue(':email', $email);
         $statement->execute();
 
-        // $arr = [$email, $password];
-        // print_r($email);die;
-
-
         $sql = "SELECT * FROM users WHERE email = ?";
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(1, $email);
