@@ -16,8 +16,8 @@ class FormLoginController implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $phrase = "Olá mundo, aqui é o login";
-        
-        return new Response(200, body: $this->render('user/login.html.twig', ['phrase' => $phrase]) );
+        $session = $_SESSION['logado'] = false;
+        // print_r($session);die;
+        return new Response(200, body: $this->render('user/login.html.twig', ['session' => $session]) );
     }
 }

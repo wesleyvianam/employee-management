@@ -37,7 +37,9 @@ class ListaPessoasController implements RequestHandlerInterface
         
         // unset($_GET['pagina']);
         // $gets = http_build_query($_GET);
+
+        $session = $_SESSION['logado'];
         
-        return new Response(200, body: $this->render('pessoa/index.html.twig'));
+        return new Response(200, body: $this->render('pessoa/index.html.twig', ['session' => $session]));
     }
 }
