@@ -21,8 +21,7 @@ $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
 // Virify if is logado
-$isLoginRoute = $pathInfo === '/login';
-if (!array_key_exists('logado', $_SESSION) && !$isLoginRoute) {
+if ($_SESSION['logado'] == false && $pathInfo !== '/login') {
     header('Location: /login');
     return;
 }

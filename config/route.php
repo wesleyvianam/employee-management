@@ -22,6 +22,7 @@ use RF\EmployeeManagement\Controller\Profissao\{
 
 use RF\EmployeeManagement\Controller\User\FormLoginController;
 use RF\EmployeeManagement\Controller\User\LoginController;
+use RF\EmployeeManagement\Controller\User\LogoutController;
 
 return [
     'GET|/' => ListaPessoasController::class,
@@ -41,4 +42,5 @@ return [
 
     'GET|/login' => FormLoginController::class,
     'POST|/login' => LoginController::class,
+    'GET|/logout' => LogoutController::class,
 ];
