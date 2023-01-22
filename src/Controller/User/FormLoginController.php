@@ -18,6 +18,6 @@ class FormLoginController implements RequestHandlerInterface
     {
         $phrase = "Olá mundo, aqui é o login";
         
-        return new Response(200, body: $this->render('user.html.twig', ['phrase' => $phrase]) );
+        return new Response(200, body: $this->render('user/login.html.twig', ['phrase' => $phrase]) );
     }
 }
