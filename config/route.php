@@ -21,6 +21,7 @@ use RF\EmployeeManagement\Controller\Profissao\{
 };
 
 use RF\EmployeeManagement\Controller\User\FormLoginController;
+use RF\EmployeeManagement\Controller\User\LoginController;
 
 return [
     'GET|/' => ListaPessoasController::class,
@@ -39,4 +40,5 @@ return [
     'GET|/remover-profissao' => DeletaProfissaoController::class,
 
     'GET|/login' => FormLoginController::class,
+    'POST|/login' => LoginController::class,
 ];
