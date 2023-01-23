@@ -11,7 +11,7 @@
             Usuários
         </h5>
         <div class="d-flex">
-            <a href="/users/new" class="btn btn-sm btn-header">
+            <a href="/users-new" class="btn btn-sm btn-header">
                 <i class="bi bi-person-fill-add"></i>
                 Novo Usuário
             </a>
@@ -47,13 +47,13 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" href="/users?em-desenvolvimento">
+                                            <a class="dropdown-item" href="/users-edit?id={{ user.id }}">
                                                 <i class="bi bi-pencil-square"></i>
                                                 Edit user
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="/users?em-desenvolvimento">
+                                            <a class="dropdown-item" href="/users/delete?id={{ user.id }}">
                                                 <i class="bi bi-trash-fill"></i>
                                                 Delete user
                                             </a>

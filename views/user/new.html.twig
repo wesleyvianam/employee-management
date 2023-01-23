@@ -1,6 +1,6 @@
 {% extends "shared/layoutBase.html.twig" %}
 
-{% block title %}New User - Employee Management{% endblock %}
+{% block title %}{{ user ? "Edit" : "New" }} User - Employee Management{% endblock %}
 
 {% block body %}
 
@@ -8,47 +8,45 @@
     <div class="bg-header p-2 px-3">
         <h5 class="text-light m-0 pe-1">
             <i class="bi bi-person-fill-add"></i>
-            New user
+            {{ user ? "Edit" : "New" }} user
         </h5>
     </div>
 
-    <form class="row p-3" method="POST" style="width: 500px">
-        <div>
-            <div>
-                <label for="name" class="form-label">Name:</label>
-                <input type="text" 
-                    name="name" 
-                    class="form-control form-control-sm" 
-                    required>
-            </div>
-            <div>
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" 
-                    name="email" 
-                    class="form-control form-control-sm" 
-                    required>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="password" class="form-label">Password:</label>
-                    <input type="password" 
-                        name="password" 
-                        class="form-control form-control-sm" 
-                        required>
-                </div>
-                <div class="col-md-6">
-                    <label for="password-confirm" class="form-label">password-confirm:</label>
-                    <input type="password" 
-                        name="password-confirm" 
-                        class="form-control form-control-sm" 
-                        required>
-                </div>
-            </div>
-
-            <button type="submit" class="mt-3 btn btm-sm btn-primary">Save</button>
+    <form class="row p-3" method="POST">
+        <div class="col-md-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" 
+                name="name" 
+                class="form-control form-control-sm" 
+                required
+                value="{{ user ? user['name'] : '' }}">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" 
+                name="email" 
+                class="form-control form-control-sm" 
+                required
+                value="{{ user ? user['email'] : '' }}">
+        </div>
+        <div class="col-md-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" 
+                name="password" 
+                class="form-control form-control-sm" 
+                required>
+        </div>
+        <div class="col-md-3">
+            <label for="password-confirm" class="form-label">password-confirm:</label>
+            <input type="password" 
+                name="password-confirm" 
+                class="form-control form-control-sm" 
+                required>
+        </div>
 
+        <div class="text-end">
+            <a href="/users" class="btn btn-light btn-sm border mt-3">Back</a>
+            <button type="submit" class="mt-3 btn btn-sm btn-primary">Save</button>
         </div>
     </form>
 </div>

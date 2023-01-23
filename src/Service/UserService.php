@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace RF\EmployeeManagement\Service;
 
 use Nyholm\Psr7\Response;
+use RF\EmployeeManagement\DTO\User\EditDataUser;
 use RF\EmployeeManagement\Entity\User;
 use RF\EmployeeManagement\Repository\UserRepository;
 
@@ -84,5 +85,46 @@ class UserService
     public function getAllUsers()
     {
         return $this->repository->getAll();
+    }
+
+    public function getUserById(array $data)
+    {
+        $id = $this->validaDados(
+            $data['id'], FILTER_VALIDATE_INT, '/users');
+            
+        return $this->repository->getUserById($id);
+    }
+
+    public function editUser(array $dataId, array $params)
+    {
+        $id = $this->validaDados(
+            $dataId['id'], FILTER_VALIDATE_INT, "/users");
+
+        $name = $this->validaDados(
+            $params['name'], FILTER_DEFAULT, '/users');
+
+        $email = $this->validaDados(
+            $params['email'], FILTER_VALIDATE_EMAIL, '/users');
+
+        $password = $this->validaDados(
+            $params['password'], FILTER_DEFAULT, '/users');
+
+        $confirmPassword = $this->validaDados(
+            $params['password-confirm'], FILTER_DEFAULT, '/users');
+
+        $this->isEquals($password, $confirmPassword);
+
+        $hash = $this->hashPassword($password);
+
+        $user = new EditDataUser($id, $name, $email, $hash);
+
+        return $this->repository->edit($user);        
+    }
+
+    public function deleteUser(array $data)
+    {
+        $id = $this->validaDados($data['id'], FILTER_VALIDATE_INT, '/users');
+
+        $this->repository->delete($id);
     }
 }
