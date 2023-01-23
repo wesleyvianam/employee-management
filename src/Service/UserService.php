@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RF\EmployeeManagement\Service;
 
+use Nyholm\Psr7\Response;
 use RF\EmployeeManagement\Entity\User;
 use RF\EmployeeManagement\Repository\UserRepository;
 
@@ -37,6 +38,11 @@ class UserService
         return password_hash($password, PASSWORD_ARGON2ID);
     }
 
+    private function passwordIsCorrect($password, $userPassword): bool
+    {
+        return password_verify($password, $userPassword ?? '');
+    }
+
     public function add(array $data)
     {
         $name = $this->validaDados(
@@ -60,5 +66,23 @@ class UserService
         $user = new User($name, $email, $roles, $hash);
 
         $this->repository->save($user);
+    }
+
+    public function getUser(array $data)
+    {
+        $email = $this->validaDados(
+            $data['email'], FILTER_VALIDATE_EMAIL, '/login');
+
+        $password = $this->validaDados(
+            $data['password'], FILTER_DEFAULT, '/login');
+
+        $user = $this->repository->getUserByEmail($email);
+
+        return $this->passwordIsCorrect($password, $user['password']);
+    } 
+
+    public function getAllUsers()
+    {
+        return $this->repository->getAll();
     }
 }

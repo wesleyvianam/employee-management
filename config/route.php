@@ -22,9 +22,11 @@ use RF\EmployeeManagement\Controller\Profissao\{
 
 use RF\EmployeeManagement\Controller\User\FormLoginController;
 use RF\EmployeeManagement\Controller\User\FormNewUserController;
+use RF\EmployeeManagement\Controller\User\ListUsersController;
 use RF\EmployeeManagement\Controller\User\LoginController;
 use RF\EmployeeManagement\Controller\User\LogoutController;
 use RF\EmployeeManagement\Controller\User\NewUserController;
+use RF\EmployeeManagement\DTO\Pessoa\ListaDadosPessoa;
 
 return [
     'GET|/' => ListaPessoasController::class,
@@ -42,9 +44,10 @@ return [
     'POST|/editar-profissao' => AtualizaProfissaoController::class,
     'GET|/remover-profissao' => DeletaProfissaoController::class,
 
+    'GET|/users' => ListUsersController::class,
     'GET|/login' => FormLoginController::class,
     'POST|/login' => LoginController::class,
     'GET|/logout' => LogoutController::class,
-    'GET|/new-user' => FormNewUserController::class,
-    'POST|/new-user' => NewUserController::class,
+    'GET|/users/new' => FormNewUserController::class,
+    'POST|/users/new' => NewUserController::class,
 ];
