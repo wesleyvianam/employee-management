@@ -10,13 +10,13 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use RF\EmployeeManagement\Helper\TemplateTwigTrait;
 
-class FormLoginController implements RequestHandlerInterface
+class FormNewUserController implements RequestHandlerInterface
 {
     use TemplateTwigTrait;
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $session = $_SESSION['logado'] = false;
-        return new Response(200, body: $this->render('user/login.html.twig', ['session' => $session]) );
+        $session = $_SESSION['logado'];
+        return new Response(200, body: $this->render('user/new.html.twig', ['session' => $session]));
     }
 }

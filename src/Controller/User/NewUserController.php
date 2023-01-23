@@ -8,15 +8,23 @@ use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use RF\EmployeeManagement\Entity\User;
 use RF\EmployeeManagement\Helper\TemplateTwigTrait;
+use RF\EmployeeManagement\Service\UserService;
 
-class FormLoginController implements RequestHandlerInterface
+class NewUserController implements RequestHandlerInterface
 {
     use TemplateTwigTrait;
 
+    public function __construct(private UserService $service) {  
+    }
+
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $session = $_SESSION['logado'] = false;
-        return new Response(200, body: $this->render('user/login.html.twig', ['session' => $session]) );
+        $dataRequest = $request->getParsedBody();
+ 
+        $this->service->add($dataRequest);
+ 
+        return new Response(302, ['Location' => '/']);
     }
 }
