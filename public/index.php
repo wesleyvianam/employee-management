@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use RF\EmployeeManagement\Controller\Error404Controller;
+use RF\EmployeeManagement\Service\UserService;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/Controller/Erro404Controller.php';
@@ -21,7 +22,9 @@ $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
 // Virify if is logado
-if ($_SESSION['logado'] == false && $pathInfo !== '/login') {
+if ($pathInfo === '/admin') {
+    "continue";
+} else if ($_SESSION['logado'] == false && $pathInfo !== '/login') {
     header('Location: /login');
     return;
 }

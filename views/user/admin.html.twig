@@ -1,0 +1,65 @@
+{% extends "shared/layoutBase.html.twig" %}
+
+{% block title %}Login - Employee Management{% endblock %}
+
+{% block body %}
+<section class="d-flex justify-content-center mt-5">
+    <div class="mb-5 mb-lg-0 shadow-sm" style="width: 500px">
+        <div class="card">
+            <div class="card-body py-5 px-md-5">
+                <form action="/admin" method="POST">
+                    <h1 class="text-center">Welcome To Employee Manager</h1>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="name">Name:</label>
+                        <input type="text" 
+                            name="name"
+                            class="form-control"
+                            placeholder="your name"
+                            required
+                            autofocus
+                            />
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="email">Email address:</label>
+                        <input type="email" 
+                            name="email"
+                            class="form-control"
+                            placeholder="your email"
+                            required
+                            autofocus
+                            />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="password">Password:</label>
+                        <input type="password" 
+                            name="password"
+                            placeholder="your password"
+                            class="form-control" 
+                            required
+                            />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="password-confirm">Confirm password:</label>
+                        <input type="password" 
+                            name="password-confirm"
+                            placeholder="confirm your password"
+                            class="form-control" 
+                            required
+                            />
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                            Create
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

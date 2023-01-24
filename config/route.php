@@ -19,8 +19,10 @@ use RF\EmployeeManagement\Controller\Profissao\{
     FormCriaController,
     ListaProfissoesController,
 };
+use RF\EmployeeManagement\Controller\User\AdminController;
 use RF\EmployeeManagement\Controller\User\DeleteUserController;
 use RF\EmployeeManagement\Controller\User\EditUserController;
+use RF\EmployeeManagement\Controller\User\FormAdminController;
 use RF\EmployeeManagement\Controller\User\FormEditUserController;
 use RF\EmployeeManagement\Controller\User\FormLoginController;
 use RF\EmployeeManagement\Controller\User\FormNewUserController;
@@ -50,6 +52,7 @@ return [
     'GET|/remover-profissao' => DeletaProfissaoController::class,
 
     // Users
+    'POST|/admin' => AdminController::class,
     'GET|/users' => ListUsersController::class,
     'GET|/login' => FormLoginController::class,
     'POST|/login' => LoginController::class,

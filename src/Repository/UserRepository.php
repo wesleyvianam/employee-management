@@ -24,7 +24,7 @@ class UserRepository
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(':name', $user->name);
         $statement->bindValue(':email', $user->email);
-        $statement->bindValue(':roles', json_encode($user->roles));
+        $statement->bindValue(':roles', $user->roles);
         $statement->bindValue(':password', $user->password);
         
         $statement->execute();
@@ -47,6 +47,16 @@ class UserRepository
         $statement->bindValue(1, $email);
         $statement->execute();
         
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getUserByRole(string $role)
+    {
+        $sql = "SELECT * FROM users WHERE roles = :role";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':role', $role);
+        $statement->execute();
+
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
@@ -84,12 +94,11 @@ class UserRepository
 
     private function hydrateUsers(array $dataUser): ListDataUser
     {
-        $roles = json_decode($dataUser['roles']);
         $user = new ListDataUser(
             $dataUser['id'],
             $dataUser['name'],
             $dataUser['email'],
-            $roles,
+            $dataUser['roles'],
         );
         
         return $user;

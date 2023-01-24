@@ -11,7 +11,7 @@ class User
     public function __construct(
         public readonly string $name,
         public readonly string $email,
-        public readonly array $roles,
+        public readonly string $roles,
         public readonly string $password,
     ) {  
     }

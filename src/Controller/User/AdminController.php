@@ -10,25 +10,26 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use RF\EmployeeManagement\Service\UserService;
 
-class LoginController implements RequestHandlerInterface
+class AdminController implements RequestHandlerInterface
 {
     public function __construct(private UserService $service)
-    {  
+    {
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $requestBody = $request->getParsedBody();
-        
-        $correctUser = $this->service->getUser($requestBody);
-
-        if (!$correctUser) {
+        if ($this->service->existSuperAdmin()) {
             return new Response(302, [
-                'Location' => '/login?user-or-password-incorrect'
+                'Location' => '/login?exist-super'
             ]);
         }
+        
+        $params = $request->getParsedBody();
+        $role = 'ROLE_SUPER';
+        $this->service->add($params, $role);
 
-        $_SESSION['logado'] = true;
-        return new Response(302, ['Location' => '/']);
+        return new Response(302, [
+            'Location' => '/login'
+        ]);
     }
 }

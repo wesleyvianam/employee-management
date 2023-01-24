@@ -15,6 +15,12 @@ class UserService
     {  
     }
 
+    public function existSuperAdmin()
+    {
+        $role = 'ROLE_SUPER';
+        return $this->repository->getUserByRole($role);
+    }
+
     private function validaDados($name, $filter = FILTER_DEFAULT, $redirect)
     {
         $data = filter_var($name, $filter);
@@ -44,7 +50,7 @@ class UserService
         return password_verify($password, $userPassword ?? '');
     }
 
-    public function add(array $data)
+    public function add(array $data, string $role = null)
     {
         $name = $this->validaDados(
             $data['name'], FILTER_DEFAULT, '/new-user');
@@ -58,10 +64,10 @@ class UserService
         $confirmPassword = $this->validaDados(
             $data['password-confirm'], FILTER_DEFAULT, '/new-user');
 
-        $roles = ['ROLE_ADMIN'];
+        $roles = $role ? $role : 'ROLE_ADMIN';
         
         $this->isEquals($password, $confirmPassword);
-
+        
         $hash = $this->hashPassword($password);
         
         $user = new User($name, $email, $roles, $hash);
