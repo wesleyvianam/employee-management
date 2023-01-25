@@ -8,14 +8,13 @@ use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use RF\EmployeeManagement\Controller\AbstractController;
 use RF\EmployeeManagement\Helper\SessionDataTrait;
 use RF\EmployeeManagement\Helper\TemplateTwigTrait;
 use RF\EmployeeManagement\Service\UserService;
 
-class ListUsersController implements RequestHandlerInterface
+class ListUsersController extends AbstractController
 {
-    use TemplateTwigTrait, SessionDataTrait;
-
     public function __construct(private UserService $service)
     {
     }
