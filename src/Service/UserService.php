@@ -85,7 +85,14 @@ class UserService
 
         $user = $this->repository->getUserByEmail($email);
 
-        return $this->passwordIsCorrect($password, $user['password']);
+        $isCorrectPassword = $this->passwordIsCorrect($password, $user['password']);
+        
+        return [
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'role' => $user['roles'],
+            'isCorrect' => $isCorrectPassword
+        ];
     } 
 
     public function getAllUsers()

@@ -8,14 +8,17 @@
     <div class="bg-header d-flex justify-content-between py-2 px-3 align-items-center">
         <h5 class="text-light m-0">
             <i class="bi bi-person-vcard pe-2"></i>
-            Usuários
+            Usuários 
         </h5>
-        <div class="d-flex">
-            <a href="/users-new" class="btn btn-sm btn-header">
-                <i class="bi bi-person-fill-add"></i>
-                Novo Usuário
-            </a>
-        </div>
+
+        {% if session.userData['role'] == 'ROLE_SUPER' %}
+            <div class="d-flex">
+                <a href="/users-new" class="btn btn-sm btn-header">
+                    <i class="bi bi-person-fill-add"></i>
+                    Novo Usuário
+                </a>
+            </div>
+        {% endif %}
     </div>
     {% if (users|length > 0) %}
         <div class="table-responsive">
@@ -25,7 +28,9 @@
                         <th scope="col">NAME</th>
                         <th scope="col">E-MAIL</th>
                         <th scope="col">ROLES</th>
-                        <th scope="col">ACTION</th>
+                        {% if session.userData['role'] == 'ROLE_SUPER' %}
+                            <th scope="col">ACTION</th>
+                        {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -38,29 +43,39 @@
                                 {{ user.email }}
                             </td>
                             <td>
-                                {{ user.roles }}
+                                {% if user.roles == 'ROLE_SUPER' %}
+                                    <span class="badge bg-primary">
+                                        Super
+                                    </span>
+                                {% else %}
+                                    <span class="badge bg-secondary">
+                                        Admin
+                                    </span>
+                                {% endif %}
                             </td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-header dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Options
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="/users-edit?id={{ user.id }}">
-                                                <i class="bi bi-pencil-square"></i>
-                                                Edit user
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="/users/delete?id={{ user.id }}">
-                                                <i class="bi bi-trash-fill"></i>
-                                                Delete user
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
+                            {% if session.userData['role'] == 'ROLE_SUPER' %}
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-header dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Options
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="/users-edit?id={{ user.id }}">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                    Edit user
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="/users/delete?id={{ user.id }}">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                    Delete user
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            {% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>

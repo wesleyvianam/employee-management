@@ -20,15 +20,19 @@ class LoginController implements RequestHandlerInterface
     {
         $requestBody = $request->getParsedBody();
         
-        $correctUser = $this->service->getUser($requestBody);
+        $user = $this->service->getUser($requestBody);
 
-        if (!$correctUser) {
+        if (!$user['isCorrect']) {
             return new Response(302, [
                 'Location' => '/login?user-or-password-incorrect'
             ]);
         }
 
+        array_pop($user);
+
         $_SESSION['logado'] = true;
+        $_SESSION['userData'] = $user;
+        
         return new Response(302, ['Location' => '/']);
     }
 }
