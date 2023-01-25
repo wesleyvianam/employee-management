@@ -7,18 +7,13 @@ namespace RF\EmployeeManagement\Controller\Pessoa;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Server\RequestHandlerInterface;
-use RF\EmployeeManagement\Controller\Controller;
-use RF\EmployeeManagement\Repository\Repository;
-use RF\EmployeeManagement\Helper\Pagina;
+use RF\EmployeeManagement\Controller\AbstractController;
 use RF\EmployeeManagement\Helper\SessionDataTrait;
 use RF\EmployeeManagement\Helper\TemplateTwigTrait;
 use RF\EmployeeManagement\Service\Service;
 
-class ListaPessoasController implements RequestHandlerInterface
+class ListaPessoasController extends AbstractController
 {
-    use TemplateTwigTrait;
-    use SessionDataTrait;
 
     public function __construct(private Service $service) 
     {  
@@ -32,19 +27,14 @@ class ListaPessoasController implements RequestHandlerInterface
         $nascidoDe = $this->service->validaDados(INPUT_GET, 'nascido_de');
         $nascidoAte = $this->service->validaDados(INPUT_GET, 'nascido_ate');
 
-        // $resultado = $this->service->buscaPessoas($nome, $sexo, $cpf, $nascidoDe, $nascidoAte);
-        // $pessoas =  $resultado['dados'];
-        // $pagina = $resultado['pagina'];
-        // $profissoes = $this->service->buscaProfissoes();
-        
-        // unset($_GET['pagina']);
-        // $gets = http_build_query($_GET);
-
         $session = $this->dataSession();
-        // print_r($session);die;
+
+        $pessoas = '';
+        
         return new Response(200, body: 
             $this->render('pessoa/index.html.twig', [
-                'session' => $session
+                'session' => $session,
+                'pessoas' => $pessoas,
             ])
         );
     }

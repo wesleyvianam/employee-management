@@ -11,18 +11,13 @@
             <input type="text" 
                 name="nome" 
                 class="form-control form-control-sm" 
-                placeholder="Digite o nome da pessoa" 
-                value="<?= $nome ?>"/>
+                placeholder="Digite o nome da pessoa"/>
         </div>
         
         <div class="col-md-2">
             <label class="form-label">Sexo</label>
             <select type="select" name="sexo" class="form-select form-select-sm">
-                <?= $sexo ? $sexo : "" ?>"><?= $sexo ? $sexo : "Todos" ?>
-                <?= $sexo 
-                    ? "<option value='<?= $sexo ?>'>$sexo</option>
-                        <option value=''>Todos</option>"
-                    : '<option value="">Todos</option>'?>
+                <option value="">Todos</option>
                 <option value="Feminino">Feminino</option>
                 <option value="Masculino">Masculino</option>
             </select>
@@ -33,8 +28,7 @@
             <input type="text" 
                 name="cpf" 
                 class="form-control form-control-sm" 
-                placeholder="000.000.000-00"
-                value="<?= $cpf ?>"/>
+                placeholder="000.000.000-00"/>
         </div>
 
         <div class="col-md-2">
@@ -42,8 +36,7 @@
             <input type="date" 
                 name="nascido_de" 
                 class="form-control form-control-sm"
-                min="1923-01-01" max="2023-12-31"
-                value="<?= $nascidoDe ?>"/>
+                min="1923-01-01" max="2023-12-31"/>
         </div>
 
         <div class="col-md-2">
@@ -52,8 +45,7 @@
                 name="nascido_ate" 
                 class="form-control form-control-sm" 
                 placeholder="dd-mm-yyyy" 
-                min="1923-01-01" max="2023-12-31"
-                value="<?= $nascidoAte ?>"/>
+                min="1923-01-01" max="2023-12-31"/>
         </div>
 
         <div class="text-end mt-3">

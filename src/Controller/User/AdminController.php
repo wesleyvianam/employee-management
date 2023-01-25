@@ -7,10 +7,10 @@ namespace RF\EmployeeManagement\Controller\User;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Server\RequestHandlerInterface;
+use RF\EmployeeManagement\Controller\AbstractController;
 use RF\EmployeeManagement\Service\UserService;
 
-class AdminController implements RequestHandlerInterface
+class AdminController extends AbstractController
 {
     public function __construct(private UserService $service)
     {

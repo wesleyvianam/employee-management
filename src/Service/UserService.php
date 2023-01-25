@@ -88,6 +88,7 @@ class UserService
         $isCorrectPassword = $this->passwordIsCorrect($password, $user['password']);
         
         return [
+            'id' => $user['id'],
             'name' => $user['name'],
             'email' => $user['email'],
             'role' => $user['roles'],

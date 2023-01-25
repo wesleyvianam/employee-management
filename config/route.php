@@ -19,19 +19,19 @@ use RF\EmployeeManagement\Controller\Profissao\{
     FormCriaController,
     ListaProfissoesController,
 };
-use RF\EmployeeManagement\Controller\User\AdminController;
-use RF\EmployeeManagement\Controller\User\DeleteUserController;
-use RF\EmployeeManagement\Controller\User\EditUserController;
-use RF\EmployeeManagement\Controller\User\FormAdminController;
-use RF\EmployeeManagement\Controller\User\FormEditUserController;
-use RF\EmployeeManagement\Controller\User\FormLoginController;
-use RF\EmployeeManagement\Controller\User\FormNewUserController;
-use RF\EmployeeManagement\Controller\User\ListUsersController;
-use RF\EmployeeManagement\Controller\User\LoginController;
-use RF\EmployeeManagement\Controller\User\LogoutController;
-use RF\EmployeeManagement\Controller\User\NewUserController;
-use RF\EmployeeManagement\DTO\Pessoa\ListaDadosPessoa;
-use RF\EmployeeManagement\DTO\User\EditDataUser;
+use RF\EmployeeManagement\Controller\User\{
+    AdminController,
+    DeleteUserController,
+    EditUserController,
+    FormEditUserController,
+    FormLoginController,
+    FormNewUserController,
+    ListUsersController,
+    LoginController,
+    LogoutController,
+    NewUserController,
+    ProfileController,
+};
 
 return [
     // Employee
@@ -51,9 +51,10 @@ return [
     'POST|/editar-profissao' => AtualizaProfissaoController::class,
     'GET|/remover-profissao' => DeletaProfissaoController::class,
 
-    // Users
+    // User
     'POST|/admin' => AdminController::class,
     'GET|/users' => ListUsersController::class,
+    'GET|/user' => ProfileController::class,
     'GET|/login' => FormLoginController::class,
     'POST|/login' => LoginController::class,
     'GET|/logout' => LogoutController::class,

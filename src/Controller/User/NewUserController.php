@@ -7,15 +7,11 @@ namespace RF\EmployeeManagement\Controller\User;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Server\RequestHandlerInterface;
-use RF\EmployeeManagement\Entity\User;
-use RF\EmployeeManagement\Helper\TemplateTwigTrait;
+use RF\EmployeeManagement\Controller\AbstractController;
 use RF\EmployeeManagement\Service\UserService;
 
-class NewUserController implements RequestHandlerInterface
+class NewUserController extends AbstractController
 {
-    use TemplateTwigTrait;
-
     public function __construct(private UserService $service) {  
     }
 
